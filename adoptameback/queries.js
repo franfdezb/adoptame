@@ -8,11 +8,9 @@ const pool = new Pool({
   port: 5447,
 })
 
-pool.query("SET search_path TO 'adopciones';")
-
 //GET All users - Seleccionamos todos los usuarios
 const getUsers = (request, response) => {
-  pool.query('SELECT * FROM user ORDER BY userid ASC', (error, results) => {
+  pool.query('SELECT * FROM adopciones.users ORDER BY userid ASC', (error, results) => {
     if (error) {
       throw error
     }
@@ -24,7 +22,7 @@ const getUsers = (request, response) => {
 const getUserById = (request, response) => {
   const id = parseInt(request.params.userid) //No sé si aquí es request.params.userid o request.params.id
 
-  pool.query('SELECT * FROM user WHERE userid = $1', [id], (error, results) => {
+  pool.query('SELECT * FROM adopciones.users WHERE userid = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
@@ -36,7 +34,7 @@ const getUserById = (request, response) => {
 const createUser = (request, response) => {
   const { nickname, email, telephone, name, surname, role, es_refugio } = request.body
 
-  pool.query('INSERT INTO user (nickname, email, telephone, name, surname, role, es_refugio) VALUES ($1, $2, $3, $4, $5, $6, $7)', [nickname, email, telephone, name, surname, role, es_refugio], (error, results) => {
+  pool.query('INSERT INTO adopciones.users (nickname, email, telephone, name, surname, role, es_refugio) VALUES ($1, $2, $3, $4, $5, $6, $7)', [nickname, email, telephone, name, surname, role, es_refugio], (error, results) => {
     if (error) {
       throw error
     }
@@ -50,7 +48,7 @@ const updateUser = (request, response) => {
   const { email, telephone } = request.body
 
   pool.query(
-    'UPDATE user SET email = $1, telephone = $2 WHERE id = $3',
+    'UPDATE adopciones.users SET email = $1, telephone = $2 WHERE id = $3',
     [email, telephone, id],
     (error, results) => {
       if (error) {
@@ -65,7 +63,7 @@ const updateUser = (request, response) => {
 const deleteUser = (request, response) => {
   const id = parseInt(request.params.userid)
 
-  pool.query('DELETE FROM user WHERE id = $1', [id], (error, results) => {
+  pool.query('DELETE FROM adopciones.users WHERE id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
