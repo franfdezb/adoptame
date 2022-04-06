@@ -38,7 +38,8 @@ const createUser = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(201).send(`User added with ID: ${result.insertId}`)
+    //ERROR. Si ponemos response.status(201).send(`User added with ID: ${result.insertId}`) da error de result is not defined
+    response.status(201)
   })
 }
 
@@ -48,13 +49,15 @@ const updateUser = (request, response) => {
   const { email, telephone } = request.body
 
   pool.query(
-    'UPDATE adopciones.users SET email = $1, telephone = $2 WHERE id = $3',
+    'UPDATE adopciones.users SET email = $1, telephone = $2 WHERE userid = $3',
     [email, telephone, id],
     (error, results) => {
       if (error) {
+        console.log(error)
         throw error
       }
-      response.status(200).send(`User modified with ID: ${id}`)
+      //response.status(200).send(`User modified with ID: ${id}`)
+      response.status(200)
     }
   )
 }

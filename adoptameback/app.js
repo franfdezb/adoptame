@@ -8,11 +8,15 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+//ERROR No sabemos que es esto, pero sin esto da error => Cannot destructure property 'nickname' of 'request.body' as it is undefined
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
+
 app.get('/users', db.getUsers)
-app.get('/users/:id', db.getUserById)
+app.get('/users/:userid', db.getUserById)
 app.post('/users', db.createUser)
-app.put('/users/:id', db.updateUser)
-app.delete('/users/:id', db.deleteUser)
+app.put('/users/:userid', db.updateUser)
+app.delete('/users/:userid', db.deleteUser)
 
 app.listen(port, () => {
   console.log('Example app listening on port ${port}')
