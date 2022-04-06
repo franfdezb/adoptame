@@ -8,9 +8,11 @@ const pool = new Pool({
   port: 5447,
 })
 
+pool.query("SET search_path TO 'adopciones';")
+
 //GET All users - Seleccionamos todos los usuarios
 const getUsers = (request, response) => {
-  pool.query('SELECT * FROM user ORDER BY id ASC', (error, results) => {
+  pool.query('SELECT * FROM user ORDER BY userid ASC', (error, results) => {
     if (error) {
       throw error
     }
@@ -30,11 +32,11 @@ const getUserById = (request, response) => {
   })
 }
 
-//PUT new user - Creamos un nuevo usuario
+//POST new user - Creamos un nuevo usuario
 const createUser = (request, response) => {
-  const { userid, nickname, email, telephone, name, surname, role, es_refugio } = request.body
+  const { nickname, email, telephone, name, surname, role, es_refugio } = request.body
 
-  pool.query('INSERT INTO user (userid, nickname, email, telephone, name, surname, role, es_refugio) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', [userid, nickname, email, telephone, name, surname, role, es_refugio], (error, results) => {
+  pool.query('INSERT INTO user (nickname, email, telephone, name, surname, role, es_refugio) VALUES ($1, $2, $3, $4, $5, $6, $7)', [nickname, email, telephone, name, surname, role, es_refugio], (error, results) => {
     if (error) {
       throw error
     }
@@ -69,4 +71,13 @@ const deleteUser = (request, response) => {
     }
     response.status(200).send(`User deleted with ID: ${id}`)
   })
+}
+
+//Esto sirve para poder usar estas funciones en app.js
+module.exports = {
+  getUsers,
+  getUserById,
+  createUser,
+  updateUser,
+  deleteUser,
 }
