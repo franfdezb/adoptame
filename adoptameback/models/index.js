@@ -1,3 +1,4 @@
+//Aquí definimos paranoyas de la DB y también las FK
 const config = require("../config/db.config.js");
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
@@ -31,5 +32,5 @@ db.user.belongsToMany(db.role, {
   foreignKey: "userId",
   otherKey: "roleId"
 });
-db.ROLES = ["user", "refuge", "admin"];
-module.exports = db;
+db.ROLES = ["user", "refuge", "admin"];   //No sé esta línea para qué funciona exactamente si ya
+module.exports = db;                      //escribimos la cantidad de roles que hay en server.js

@@ -36,6 +36,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
+//IMPORTANTE FOTO QUE ENVIO POR EL GRUPO DE WA
 function initial() {
   Role.create({
     id: 1,

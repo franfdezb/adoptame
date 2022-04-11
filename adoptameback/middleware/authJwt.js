@@ -1,3 +1,5 @@
+//Aquí verificamos el token de inicio de sesión y creamos las "reglas" que
+//definen el poder entrar o no en una página dependiendo de tu rol
 const jwt = require("jsonwebtoken");
 const config = require("../config/auth.config.js");
 const db = require("../models");

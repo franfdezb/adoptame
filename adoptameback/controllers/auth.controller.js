@@ -1,8 +1,9 @@
+//Aquí se hacen todas las acciones que tienen que ver directamente con
+//el registro y el login (creación del usuario en la BD, comprobar usuario
+//o email duplicado, comprobar si el usuario es refugio para darle ese rol,...)
 const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
-const Role = db.role;
-const Op = db.Sequelize.Op;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 exports.signup = (req, res) => {
@@ -16,13 +17,13 @@ exports.signup = (req, res) => {
     isRefuge: req.body.isRefuge
   })
     .then(user => {
-        //Si la casilla de isRefuge
+        //Si la casilla de isRefuge esta marcada
       if (req.body.isRefuge == 1) {
           user.setRoles([1, 2]).then(() => { //Tendrá roles de usuario y de refugio
             res.send({ message: "User was registered successfully!" });
           });
       } else {
-        // user role = 1
+        // user role = 1, es decir, solo tendrá rol de usuario
         user.setRoles([1]).then(() => {
           res.send({ message: "User was registered successfully!" });
         });

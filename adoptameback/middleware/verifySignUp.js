@@ -1,3 +1,4 @@
+//Comprobamos que el email o el usuario no esté repetido en el registro
 const db = require("../models");
 const ROLES = db.ROLES;
 const User = db.user;
