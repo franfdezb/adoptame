@@ -74,6 +74,23 @@ const deleteUser = (request, response) => {
   })
 }
 
+
+//Función de login (falta comprobación de contraseña)
+const loginUser = (request, response) => {
+  const data = request.body;
+
+  if (data != null){
+    const user = data['user'];
+    const password = data['password'];
+  }
+
+  pool.query('SELECT password FROM adopciones.users WHERE nickname = $user OR email = $user', [user], (error, results) => {
+   console.log(results.rows);
+  });
+    
+}
+
+
 //Esto sirve para poder usar estas funciones en app.js
 module.exports = {
   getUsers,
@@ -81,4 +98,5 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
+  loginUser
 }

@@ -17,6 +17,7 @@ app.get('/users/:userid', db.getUserById)
 app.post('/users', db.createUser)
 app.put('/users/:userid', db.updateUser)
 app.delete('/users/:userid', db.deleteUser)
+app.post('/login', db.loginUser);
 
 app.listen(port, () => {
   console.log('Example app listening on port ${port}')
