@@ -1,10 +1,10 @@
-<div class="title-block" style="float: left; display: flex; background-color: #F1C232; height: calc(100% - 80%) !important;">
+<div class="title-block" style="float: left; display: flex; background-color: #F1C232; width: 100%; height: calc(100% - 90%) !important;">
     <div class="column-left-right" style="float: left; width: 25%; position: relative;">
         <img src="images/redes.png" alt="redes" style="max-height: 47%;max-width: 40%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;">
     </div>
 
     <div class="column-center" style="float: left; width: 50%;">
-        <img src="images/banner.png" alt="banner" style="width: 100%; padding-top: 10px; padding-bottom: 10px;">
+        <img src="images/banner.png" alt="banner" style="width: 75%; padding-top: 10px; padding-bottom: 10px;">
     </div>
 
     <div class="column-left-right" style="float: left; width: 25%; position: relative;">
