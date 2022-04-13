@@ -1,3 +1,5 @@
+
+
 function validateForm() {
     let email = $("#email").val();
     let password = $("#password").val();
@@ -10,7 +12,7 @@ function validateForm() {
     };
 
     $.ajax({
-        url: "http://localhost:3000/login",
+        url: "http://localhost:8080/api/auth/signin",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(login_data),
@@ -26,7 +28,19 @@ function validateForm() {
 
 function handleLogin(data) {
     let token = data.accessToken;
-    saveToken(token).then(function() {
-        window.location.href = "index.php";
-    });
+    localStorage.setItem("token", token);
+    localStorage.setItem("tokenTime", new Date().getTime());
+    localStorage.setItem("userId", data.id);
+    localStorage.setItem("username", data.username);
+    
+    if(data.roles.includes("ROLE_REFUGE")){
+        localStorage.setItem("roles", "user, refuge")
+    }
+    if(data.roles.includes("ROLE_ADMIN")){
+        localStorage.setItem("roles", "user, refuge, admin")
+    }
+
+    window.location.href = "index.php";
+    
+    //La variable localStorage contiene todos los datos del usuario mientras tenga su sesión iniciada
 }

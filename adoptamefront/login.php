@@ -24,7 +24,7 @@
             </div>
         </div>
         <form onsubmit="return validateForm()">
-            <div class="row">
+            
                 <div class="col-md">
                     <div class="form-group">
                         <label for="email">Email:</label>
@@ -42,7 +42,7 @@
                         <input type="password" required class="form-control" id="password" name="password" placeholder="Contraseña">
                     </div>
                 </div>
-            </div>
+            
             <div class="row">
                 <div class="col-md text-center">
                     <button type="submit" class="btn btn-primary">Login</button>

@@ -1,5 +1,5 @@
 <!doctype HTML>
-<html lang="es">
+<html lang="es" style="background-color: #EDEDED;">
 
 <head>
   <?php include 'imports.php' ?>
@@ -25,7 +25,6 @@
   </div>
 
   <?php include 'footer.php' ?>
-  <script src="js/gallery.js"></script>
 
 </body>
 

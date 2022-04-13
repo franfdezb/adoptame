@@ -1,4 +1,4 @@
-<footer class="text-center text-lg-start" style="background-color: #ffebcd; float: left; width: 100%;">
+<footer class="text-center text-lg-start" style="background-color: #ffebcd; float: left; width: 100%; margin-top: 30px;">
   <!-- Copyright -->
   <div class="text-center p-3">
     © 2022 Copyright:

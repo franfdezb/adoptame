@@ -73,7 +73,7 @@ p.footer {
 }
 
 .button {
-    margin: 4px 11px;
+    margin: 4px 25px;
     padding: 9px 0px;
     border: 2px solid #555555;
     background-color: #FFFCBD;
@@ -180,3 +180,63 @@ profile-header {
     object-fit: cover;
     width: 100%;
 }
+
+@media (min-width: 1200px){
+.container {
+    max-width: 568px !important;
+}
+}
+
+@media (min-width: 992px){
+.container {
+    max-width: 568px !important;
+}
+}
+
+@media (min-width: 768px){
+.container {
+    max-width: 568px !important;
+}
+}
+
+.dropbtn {
+    background-color: #F1C232;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #F1C232;
+  }
+  
+  .dropdown {
+    float: right;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    z-index: 1;
+    margin: 22%;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
