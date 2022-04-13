@@ -80,6 +80,14 @@ p.footer {
     border-radius: 7px;
 }
 
+.buttonmovil {
+    margin: 4px 25px;
+    padding: 9px 0px;
+    border: 2px solid #555555;
+    background-color: #FFFCBD;
+    border-radius: 7px;
+}
+
 #logo-lsi {
     width: 100px;
     height: auto;
@@ -240,3 +248,53 @@ profile-header {
   .dropdown a:hover {background-color: #ddd;}
   
   .show {display: block;}
+
+  .button {
+    margin: 4px 25px;
+    padding: 9px 0px;
+    border: 2px solid #555555;
+    background-color: #FFFCBD;
+    border-radius: 7px;
+}
+
+@media (max-width: 816px){
+    .button {
+        margin: 4px 7px !important;
+        font-size: small;
+    }
+
+    #fotoperfil{
+        max-height: 58% !important;
+    }
+
+    #fotobanner{
+        width: 90% !important;
+    }
+}
+
+@media (max-width: 576px){
+    .column-left-right {
+        display: none;
+    }
+
+    .dropdown{
+        display: none;
+    }
+
+    .column-center{
+        width: 100% !important;
+    }
+
+    #fotobanner{
+        width: 72% !important;
+    }
+
+    .button{
+        display: none !important;
+    }
+
+    #buttonmenumovil{
+        display: block !important;
+        margin: 0 auto;
+    }
+}
