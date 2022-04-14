@@ -71,7 +71,12 @@
 		                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		                    </div>
                             <input class="form-control" placeholder="Repita contraseña" id="password2" type="password">
-                        </div> <!-- form-group// -->                                      
+                        </div> <!-- form-group// -->   
+                        <div style="width: 100%" >
+                            <input type="checkbox" id="checkboxRefugio">
+                            <label for="scales">¿Eres encargado de una protectora?</label>
+                        </div>
+
                         <div class="form-group" style="width: 100%; margin-left: 80px; margin-right: 80px;">
                             <button type="submit" class="button2"> REGÍSTRATE </button>
                         </div> <!-- form-group// -->    

@@ -1,23 +1,14 @@
-var errorCounter = 0;
-var nombre = $("#nombre").val();
-var apellidos = $("#apellidos").val();
-var telefono = $("#telefono").val();
-var email = $("#email").val();
-var usuario = $("#usuario").val();
-var password1 = $("#password1").val();
-var password2 = $("#password2").val();
-
-
 function validateForm() {
     $("#errors-container").empty();
 
     nombre = $("#nombre").val();
-    apellidos = $("#apellidos").val();
-    telefono = $("#telefono").val();
+    surname = $("#apellidos").val();
     email = $("#email").val();
-    usuario = $("#usuario").val();
+    telephone = $("#telefono").val();
+    username = $("#usuario").val();
     password1 = $("#password1").val();
     password2 = $("#password2").val();
+    isRefuge = $("#checkboxRefugio").val();
 
     if (nombre.trim().length < 3) {
         $("#errors-container").append(
@@ -26,7 +17,7 @@ function validateForm() {
         errorCounter++;
     }
 
-    if (apellidos.trim().length < 6) {
+    if (surname.trim().length < 6) {
         $("#errors-container").append(
             getError("Los apellidos deben tener al menos 6 caracteres de longitud")
         );
@@ -38,7 +29,7 @@ function validateForm() {
         errorCounter++;
     }
 
-    if (!new RegExp("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$").test(telefono)) {
+    if (!new RegExp("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$").test(telephone)) {
         $("#errors-container").append(getError("Introduzca un número de teléfono válido"));
         errorCounter++;
     }
@@ -57,51 +48,48 @@ function validateForm() {
         errorCounter++;
     }
 
-    $.ajax({
+    let user = {
+        email: email,
+        password: password1,
+        name: nombre,
+        surname: surname,
+        telephone: telephone,
+        username: username,
+        isRefuge: isRefuge
+    };
+
+    console.log("klk")
+
+    resultEmail(user);
+
+    /*$.ajax({
         url: "http://localhost:3000/users?email=" + email,
         success: resultEmail,
         error: function(error) {
             console.log("Ha ocurrido un error: " + error.toString());
             errorCounter = 0;
         }
-    });
+    });*/
 
-    return false;
 }
 
-function resultEmail(data) {
-    if (data.length > 0) {
-        $("#errors-container").append(getError("El email ya existe"));
-        errorCounter++;
-    }
-
-    if (errorCounter === 0) {
-
-        let user = {
-            email: email,
-            password: password1,
-            name: nombre,
-            surname: apellidos,
-            phone: telefono,
-            user: usuario,
-        };
+function resultEmail(user) {
 
         $.ajax({
-            url: "http://localhost:3000/register",
+            url: "http://localhost:8080/api/auth/signup",
             method: "POST",
             data: JSON.stringify(user),
             contentType: "application/json",
             success: handleRegister,
-            error: function() {
+            error: function(response) {
+                console.log(response);
                 alert("Ha habido un error al intentar registrarse");
             }
         });
     }
 
-    errorCounter = 0;
-}
-
 function handleRegister(data) {
+    console.log('HEYYY')
     let token = data.accessToken;
     saveToken(token).then(() => {
         window.location.href = "index.php";
