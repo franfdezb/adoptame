@@ -21,9 +21,9 @@ function validateForm1() {
         errorCounter++;
     }
 
-    if (surname.trim().length < 6) {
+    if (surname.trim().length < 4) {
         $("#errors-container").append(
-            getError("Los apellidos deben tener al menos 6 caracteres de longitud")
+            getError("Los apellidos deben tener al menos 4 caracteres de longitud")
         );
         errorCounter++;
     }
