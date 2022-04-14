@@ -116,10 +116,6 @@ p.footer {
     margin-top: 7.5%;
 }
 
-.espacio2 {
-    margin-left: 120%;
-}
-
 .letra2 {
     font-size: xx-large;
 }
@@ -204,6 +200,11 @@ profile-header {
 @media (min-width: 768px){
 .container {
     max-width: 568px !important;
+}
+
+.col-md-9 {
+    flex: 0 0 90% !important;
+    max-width: 90% !important;
 }
 }
 

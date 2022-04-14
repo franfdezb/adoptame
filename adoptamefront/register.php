@@ -21,7 +21,7 @@
     <div class="row"> <!--Columba-->
 	    <div class="col-md-9 mr-auto ml-auto no-login-msg text-center"> <!--Tamaño, columna tamaño 5 de 12(12 es el máximo)-->
             <div class="card bg-light">
-                <article class="card-body mx-auto" style="max-width: 400px;">
+                <article class="card-body mx-auto" style="max-width: 600px;">
 	            <h4 class="card-title mt-3 text-center">Crear cuenta</h4>
 	                <p class="text-center">Crea tu cuenta gratuita</p>
 	            <p class="divider-text">
@@ -72,8 +72,8 @@
 		                    </div>
                             <input class="form-control" placeholder="Repita contraseña" id="password2" type="password">
                         </div> <!-- form-group// -->                                      
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block espacio2"> Registrarse </button>
+                        <div class="form-group" style="width: 100%; margin-left: 80px; margin-right: 80px;">
+                            <button type="submit" class="btn btn-primary btn-block"> Registrarse </button>
                         </div> <!-- form-group// -->    
                                                                
                 </form>      
