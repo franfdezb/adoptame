@@ -19,7 +19,7 @@
             </div>
     </div> <!--Contenedor-->
     <div class="row"> <!--Columba-->
-	    <div class="col-md-5 mr-auto ml-auto no-login-msg text-center"> <!--Tamaño, columna tamaño 5 de 12(12 es el máximo)-->
+	    <div class="col-md-9 mr-auto ml-auto no-login-msg text-center"> <!--Tamaño, columna tamaño 5 de 12(12 es el máximo)-->
             <div class="card bg-light">
                 <article class="card-body mx-auto" style="max-width: 400px;">
 	            <h4 class="card-title mt-3 text-center">Crear cuenta</h4>
