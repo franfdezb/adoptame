@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+
+.button2 {
+    background-color: #F1C232;
+    border: none;
+    color: black;
+    padding: 10px 17px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 7px;
+    border: 2px solid #555555;
+}
+
 .opensans {
   font-family: "Open Sans", sans-serif;
 }

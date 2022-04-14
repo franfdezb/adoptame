@@ -11,7 +11,7 @@
     <img src="images/perfil.png" id="fotoperfil" onclick="myFunction()" class="dropbtn" alt="redes" style="max-height: 50%;max-width: 33%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;">
         <div id="myDropdown" class="dropdown-content">
             <a href="http://localhost:3000/login.php" id="optiononeprofile">Inicia sesión</a>
-            <a href="#signup" id="optiontwoprofile">Regístrate</a>
+            <a href="http://localhost:3000/register.php" id="optiontwoprofile">Regístrate</a>
         </div>
     </div>
 </div>
@@ -22,9 +22,9 @@
         <a href="#" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">DA EN ADOPCIÓN</a>
         <a href="#" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">¿QUIÉNES SOMOS?</a>
         <button href="#" onclick="myFunction()" class="buttonmovil dropdown-toggle" id="buttonmenumovil" data-toggle="dropdown" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans; display: none;">MENÚ</button>
-          <ul class="dropdown-menu dropdown-content" style="text-align: center; position: revert; padding-right: initial; margin-block: initial">
-            <li><a href="http://localhost:3000/register.php">Registrarse</a></li>
-            <li><a href="http://localhost:3000/login.php">Inicia Sesión</a></li>
+          <ul class="dropdown-menu dropdown-content" style="text-align: center; padding-right: initial; margin-block: initial">
+            <li><a id="optionthreeprofile" style="font-weight: bold" href="http://localhost:3000/register.php">REGÍSTRATE</a></li>
+            <li><a id="optionfourprofile" style="font-weight: bold" href="http://localhost:3000/login.php">INICIA SESIÓN</a></li>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Protectoras</a></li>
             <li><a href="#">Dar en adopción</a></li>
