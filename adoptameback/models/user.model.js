@@ -16,6 +16,9 @@ module.exports = (sequelize, Sequelize) => {
       surname: {
         type: Sequelize.STRING
       },
+      telephone: {
+        type: Sequelize.STRING
+      },
       isRefuge: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
