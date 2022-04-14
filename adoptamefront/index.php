@@ -3,7 +3,7 @@
 
 <head>
   <?php include 'imports.php' ?>
-  <title>Fotos más recientes</title>
+  <title>ADÓPTAME! Inicio</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
     
     <div class="row" style="float: left;">
       <div class="col-md text-center">
-        <h3 class="letra">Fotos más recientes</h3>
+        <h3 class="letra"></h3>
       </div>
     </div>
 
