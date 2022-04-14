@@ -21,7 +21,15 @@
         <a href="/about" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">PROTECTORAS</a>
         <a href="#" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">DA EN ADOPCIÓN</a>
         <a href="#" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">¿QUIÉNES SOMOS?</a>
-        <button href="#" class="buttonmovil" id="buttonmenumovil" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans; display: none;">MENÚ</button>
+        <button href="#" onclick="myFunction()" class="buttonmovil dropdown-toggle" id="buttonmenumovil" data-toggle="dropdown" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans; display: none;">MENÚ</button>
+          <ul class="dropdown-menu dropdown-content" style="text-align: center; position: revert; padding-right: initial; margin-block: initial">
+            <li><a href="#">Registrarse</a></li>
+            <li><a href="http://localhost:3000/adoptamefront/login.php">Inicia Sesión</a></li>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Protectoras</a></li>
+            <li><a href="#">Dar en adopción</a></li>
+            <li><a href="#">¿Quiénes somos?</a></li>
+          </ul>
     </nav>
   
 </div>
