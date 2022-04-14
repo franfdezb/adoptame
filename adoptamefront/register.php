@@ -27,12 +27,12 @@
 	            <p class="divider-text">
                     <span class="bg-light">O</span>
                 </p>
-	            <form onsubmit="return validateForm()">
+	            <form onsubmit="return false">
 	                <div class="form-group input-group">
 		                <div class="input-group-prepend">
 		                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		                </div>
-                        <input name="" class="form-control" placeholder="Nombre" id="nombre" type="text">
+                        <input name="" class="form-control" placeholder="Nombre" id="name" type="text">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
 		                <div class="input-group-prepend">
@@ -78,7 +78,7 @@
                         </div>
 
                         <div class="form-group" style="width: 100%; margin-left: 80px; margin-right: 80px;">
-                            <button type="submit" class="button2"> REGÍSTRATE </button>
+                            <button onclick="validateForm1()" class="button2"> REGÍSTRATE </button>
                         </div> <!-- form-group// -->    
                                                                
                 </form>      
@@ -95,7 +95,9 @@
 
   <?php include 'footer.php' ?>
   <script src="js/register.js"></script>
-
+  	
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 
 </body>
 

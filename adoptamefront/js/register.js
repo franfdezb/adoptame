@@ -1,7 +1,11 @@
-function validateForm() {
+$(document).ready(function() {
+    $('#nombre').removeClass('is-valid');
+  });
+
+function validateForm1() {
     $("#errors-container").empty();
 
-    nombre = $("#nombre").val();
+    nombre = $("#name").val();
     surname = $("#apellidos").val();
     email = $("#email").val();
     telephone = $("#telefono").val();
@@ -58,8 +62,6 @@ function validateForm() {
         isRefuge: isRefuge
     };
 
-    console.log("klk")
-
     resultEmail(user);
 
     /*$.ajax({
@@ -89,11 +91,18 @@ function resultEmail(user) {
     }
 
 function handleRegister(data) {
-    console.log('HEYYY')
-    let token = data.accessToken;
-    saveToken(token).then(() => {
-        window.location.href = "index.php";
-    });
+
+    Swal.fire({
+        title: '¡Registrado con éxito!',
+        text: 'Inicia sesión con tu nueva cuenta',
+        imageUrl: 'images/logocirculo.png',
+        imageWidth: 150,
+        imageAlt: 'Custom image',
+        confirmButtonColor: '#F1C232'
+      }).then(function(){
+        window.location.href = "login.php"
+      })
+    //window.location.href = "login.php";
 }
 
 ///////////////////////////////////////////////////////////////////////////////

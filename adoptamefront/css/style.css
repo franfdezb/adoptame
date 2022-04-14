@@ -315,3 +315,7 @@ profile-header {
         margin: 0 auto;
     }
 }
+
+.form-control.is-valid {
+    background-image: none !important;
+}
