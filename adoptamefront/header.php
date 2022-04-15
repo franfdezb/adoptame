@@ -19,15 +19,15 @@
     <nav class="navbar navbar-expand-sm bg-light navbar-light" style="float: left; width: 100%; margin-bottom: 20px;">
         <a href="http://localhost:3000/index.php" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">INICIO</a>
         <a href="/about" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">PROTECTORAS</a>
-        <a href="http://localhost:3000/adoptar.php" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">DA EN ADOPCIÓN</a>
+        <a href="http://localhost:3000/darenadopcion.php" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">DA EN ADOPCIÓN</a>
         <a href="#" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">¿QUIÉNES SOMOS?</a>
         <button class="buttonmovil dropdown-toggle" id="buttonmenumovil" data-toggle="dropdown" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans; display: none;">MENÚ</button>
           <ul class="dropdown-menu dropdown-content" id="buttonmenumovil1" style="text-align: center; padding-right: initial; margin-block: initial;">
             <li><a id="optionthreeprofile" style="font-weight: bold" href="http://localhost:3000/register.php">REGÍSTRATE</a></li>
             <li><a id="optionfourprofile" style="font-weight: bold" href="http://localhost:3000/login.php">INICIA SESIÓN</a></li>
-            <li><a href="#">Inicio</a></li>
+            <li><a href="http://localhost:3000/index.php">Inicio</a></li>
             <li><a href="#">Protectoras</a></li>
-            <li><a href="http://localhost:3000/adoptar.php">Dar en adopción</a></li>
+            <li><a href="http://localhost:3000/darenadopcion.php">Dar en adopción</a></li>
             <li><a href="#">¿Quiénes somos?</a></li>
           </ul>
     </nav>
