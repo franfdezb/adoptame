@@ -98,6 +98,7 @@
 			</div>
 		</div>
   </div>
+  </div>
 
   <?php include 'footer.php' ?>
   <script src="js/adoptar.js"></script>
