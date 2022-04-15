@@ -13,13 +13,13 @@
 <body>
   <?php include 'header.php' ?>
 
-  <div class="container">
+  <div class="container" style="max-width: 680px !important">
     <div class="row">
             <div class="col-md" id="errors-container">
             </div>
     </div> <!--Contenedor-->
-    <div class="row"> <!--Columba-->
-	    <div class="col-md-9" style="margin-left:15%"> <!--Tamaño, columna tamaño 5 de 12(12 es el máximo)-->
+    <div class="row" id="row2" style="width: 100%; margin-left: 30px"> <!--Columba-->
+	    <div class="col-md-9"> <!--Tamaño, columna tamaño 5 de 12(12 es el máximo)-->
             <div class="card bg-light">
                 <article class="card-body mx-auto" style="max-width: 600px;">
 	            <h5 class="card-title mt-3 text-center">Da un animal en adopción</h5>
@@ -100,7 +100,7 @@
   </div>
 
   <?php include 'footer.php' ?>
-  <script src="js/register.js"></script>
+  <script src="js/adoptar.js"></script>
   	
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>

@@ -274,7 +274,7 @@ profile-header {
     border-radius: 7px;
 }
 
-@media (max-width: 816px){
+@media (max-width: 833px){
     .button {
         margin: 4px 7px !important;
         font-size: small;
