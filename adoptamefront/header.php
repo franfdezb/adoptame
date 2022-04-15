@@ -21,8 +21,8 @@
         <a href="/about" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">PROTECTORAS</a>
         <a href="http://localhost:3000/adoptar.php" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">DA EN ADOPCIÓN</a>
         <a href="#" class="button" id="button" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">¿QUIÉNES SOMOS?</a>
-        <button href="#" onclick="myFunction()" class="buttonmovil dropdown-toggle" id="buttonmenumovil" data-toggle="dropdown" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans; display: none;">MENÚ</button>
-          <ul class="dropdown-menu dropdown-content" style="text-align: center; padding-right: initial; margin-block: initial">
+        <button onclick="myFunction()" class="buttonmovil dropdown-toggle" id="buttonmenumovil" data-toggle="dropdown" style="width: 25%; text-align: center; color: black !important; font-weight: bold; font-family: Open Sans; display: none;">MENÚ</button>
+          <ul class="dropdown-menu dropdown-content" id="buttonmenumovil1" style="text-align: center; padding-right: initial; margin-block: initial;">
             <li><a id="optionthreeprofile" style="font-weight: bold" href="http://localhost:3000/register.php">REGÍSTRATE</a></li>
             <li><a id="optionfourprofile" style="font-weight: bold" href="http://localhost:3000/login.php">INICIA SESIÓN</a></li>
             <li><a href="#">Inicio</a></li>
@@ -47,20 +47,17 @@ $(document).ready(function(){
 toggle between hiding and showing the dropdown content */
 
 function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  if($('#buttonmenumovil1').css('display') == 'none'){
+    $('#buttonmenumovil1').show();
+  }else{
+    $('#buttonmenumovil1').hide();
+  }
 }
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
+  if (!event.target.matches('.dropdown-menu')) {
+    $('#buttonmenumovil1').hide();
     }
   }
-}
 </script>
