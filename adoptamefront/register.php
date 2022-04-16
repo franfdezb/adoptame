@@ -38,7 +38,7 @@
     	                <div class="input-group-prepend">
 		                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 		                </div>
-                        <input name="" class="form-control" placeholder="Introduzca su correo electrónico (*)" id="email" type="email">
+                        <input name="" class="form-control" placeholder="Introduce tu correo electrónico (*)" id="email" type="email">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
     	                <div class="input-group-prepend">
@@ -53,18 +53,18 @@
 		                <div class="input-group-prepend">
 		                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		                </div>
-                        <input name="" class="form-control" placeholder="Introduzca usuario (*)" id="usuario" type="text">  
+                        <input name="" class="form-control" placeholder="Introduce un usuario (*)" id="usuario" type="text">  
                         <div class="form-group input-group usuario">
     	                    <div class="input-group-prepend">
 		                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		                    </div>
-                            <input class="form-control" placeholder="Cree una contraseña (*)" id="password1" type="password">
+                            <input class="form-control" placeholder="Crea una contraseña (*)" id="password1" type="password">
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
     	                    <div class="input-group-prepend">
 		                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		                    </div>
-                            <input class="form-control" placeholder="Repita contraseña (*)" id="password2" type="password">
+                            <input class="form-control" placeholder="Repite contraseña (*)" id="password2" type="password">
                         </div> <!-- form-group// -->   
                         <div style="width: 100%" >
                             <input type="checkbox" id="checkboxRefugio">

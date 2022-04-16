@@ -12,7 +12,7 @@ function validateForm1() {
     username = $("#usuario").val();
     password1 = $("#password1").val();
     password2 = $("#password2").val();
-    isRefuge = $("#checkboxRefugio").val();
+    isRefuge = $("#checkboxRefugio").is(":checked");
 
     if (nombre.trim().length < 3) {
         $("#errors-container").append(

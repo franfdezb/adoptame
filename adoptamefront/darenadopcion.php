@@ -22,7 +22,7 @@
                 <article class="card-body mx-auto" style="max-width: 680px; margin-left: 0px !important; margin-right: 0px !important;">
                 <img src="images/logocirculo.png" style="width:130px; margin: auto; display: block;"></img>
 	            <h4 class="card-title mt-3 text-center">Da un animal en adopción</h4>
-                Fotos de animal
+                Fotos del animal (máximo 2 fotos)
                 <form action="/action_page.php">
                     <input type="file" onchange="encodeImageFileAsURL(this)" id="myfile" accept="image/*" name="myfile" multiple><br><br>
                 </form>

@@ -1,4 +1,5 @@
 var photo1 = null;
+var photo2 = null;
 
 function validateForm1() {
     $("#errors-container").empty();
@@ -25,12 +26,12 @@ function validateForm1() {
     age = $("#fechanacimiento").val(); //A lo mejor da error porque es tipo date
     moreinfo = $("#moreinfo").val();
 
-    vaccinated = $("#checkboxVacuna").val();
-    dewormed = $("#checkboxParasito").val();
-    sterilized = $("#checkboxEsteril").val();
-    microchip = $("#checkboxChip").val();
+    vaccinated = $("#checkboxVacuna").is(":checked");
+    dewormed = $("#checkboxParasito").is(":checked");
+    sterilized = $("#checkboxEsteril").is(":checked");
+    microchip = $("#checkboxChip").is(":checked");
     refugeid = null; //Ponemos este valor para probar
-    adoptionStatus = 1; //1 para decir que el animal está en adopción
+    adoptionStatus = true; //1 para decir que el animal está en adopción
 
     /*if (nombre.trim().length < 3) {
         $("#errors-container").append(
@@ -40,6 +41,13 @@ function validateForm1() {
     }*/
 
     userid = localStorage.userId;
+
+    if ($("#myfile").val() == '') {
+        $("#errors-container").append(
+            getError("Debes subir al menos una foto del animal")
+        );
+        errorCounter++;
+    }
 
     let animal = {
         weight: weight,
@@ -65,6 +73,19 @@ function validateForm1() {
 
     resultAnimal(animal);
 
+}
+
+function getError(message) {
+    return (
+        "<div onclick='removeError(this);' class='alert alert-danger' role='alert'><strong><i class='fa fa-times' aria-hidden= 'true'></i > Error! </strong>" +
+        message +
+        "</div>"
+    );
+}
+
+
+function removeError(error) {
+    $(error).remove();
 }
 
 function resultAnimal(animal) {
@@ -120,7 +141,7 @@ function encodeImageFileAsURL(element) {
                 if(photo1 == null){
                     photo1 = reader.result;
                 }else{
-                    photo2 = reader.result
+                    photo2 = reader.result;
                 }   
              }
             reader.readAsDataURL(file)
