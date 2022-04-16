@@ -11,7 +11,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING
       },
       age: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       gender: {
         type: Sequelize.STRING
@@ -43,8 +43,27 @@ module.exports = (sequelize, Sequelize) => {
       moreinfo: {
         type: Sequelize.STRING
       },
-      photos: {
-        type: Sequelize.STRING
+      photo1: {
+        type: Sequelize.BLOB
+      },
+      photo2: {
+        type: Sequelize.BLOB
+      },
+      vaccinated: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
+      dewormed: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
+      sterilized: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
+      microchip: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       }
     });
     return Animal;
