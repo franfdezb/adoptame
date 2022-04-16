@@ -1,65 +1,130 @@
+var photo1 = null;
+
 function validateForm1() {
     $("#errors-container").empty();
 
-    nombre = $("#name").val();
-    surname = $("#apellidos").val();
-    email = $("#email").val();
-    telephone = $("#telefono").val();
-    username = $("#usuario").val();
-    password1 = $("#password1").val();
-    password2 = $("#password2").val();
-    isRefuge = $("#checkboxRefugio").val();
+    animalname = $("#animalname").val();
+    specie = $("#specie").val();
+    raze = $("#raze").val();
 
-    if (nombre.trim().length < 3) {
+    if($("#size").val() == 0){
+        size = 'Pequeño';
+    } else if($("#size").val() == 1){
+        size = 'Mediano';
+    }else{
+        size = 'Grande';
+    }
+    weight = $("#weight").val();
+
+    if($("#gender").val() == 0){
+        gender = 'Macho';
+    }else{
+        gender = 'Hembra';
+    }
+
+    age = $("#fechanacimiento").val(); //A lo mejor da error porque es tipo date
+    moreinfo = $("#moreinfo").val();
+
+    vaccinated = $("#checkboxVacuna").val();
+    dewormed = $("#checkboxParasito").val();
+    sterilized = $("#checkboxEsteril").val();
+    microchip = $("#checkboxChip").val();
+    refugeid = null; //Ponemos este valor para probar
+    adoptionStatus = 1; //1 para decir que el animal está en adopción
+
+    /*if (nombre.trim().length < 3) {
         $("#errors-container").append(
             getError("El nombre debe tener al menos 3 caracteres de longitud")
         );
         errorCounter++;
-    }
+    }*/
 
-    if (surname.trim().length < 4) {
-        $("#errors-container").append(
-            getError("Los apellidos deben tener al menos 4 caracteres de longitud")
-        );
-        errorCounter++;
-    }
+    userid = localStorage.userId;
 
-    if (!new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$").test(email)) {
-        $("#errors-container").append(getError("Por favor, introduzca un email válido"));
-        errorCounter++;
-    }
-
-    if (!new RegExp("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$").test(telephone)) {
-        $("#errors-container").append(getError("Introduzca un número de teléfono válido"));
-        errorCounter++;
-    }
-
-    if (password1.trim().length < 5) {
-        $("#errors-container").append(
-            getError("La contraseña debe tener el menos 5 caracteres de longitud")
-        );
-        errorCounter++;
-    }
-
-    if (password1 != password2) {
-        $("#errors-container").append(
-            getError("Las contraseñas deben ser iguales")
-        );
-        errorCounter++;
-    }
-
-    let user = {
-        email: email,
-        password: password1,
-        name: nombre,
-        surname: surname,
-        telephone: telephone,
-        username: username,
-        isRefuge: isRefuge
+    let animal = {
+        weight: weight,
+        raze: raze,
+        name: animalname,
+        age: age,
+        gender: gender,
+        size: size,
+        specie: specie,
+        adoptionStatus: adoptionStatus,
+        refugeid: refugeid,
+        userid: userid,
+        moreinfo: moreinfo,
+        photo1: photo1,
+        photo2: photo2,
+        vaccinated: vaccinated,
+        dewormed: dewormed,
+        sterilized: sterilized,
+        microchip: microchip,
     };
 
-    resultEmail(user);
+    //console.log(animal);
 
+    resultAnimal(animal);
+
+}
+
+function resultAnimal(animal) {
+
+    $.ajax({
+        url: "http://localhost:8080/api/animal/create",
+        method: "POST",
+        data: JSON.stringify(animal),
+        contentType: "application/json",
+        success: handleRegister(animal),
+        error: function(response) {
+            console.log(response);
+            alert("Ha habido un error al intentar registrarse");
+        }
+    });
+}
+
+function handleRegister(data) {
+
+    if(data.gender == 0){
+        Swal.fire({
+            title: '¡' + data.name + ' ha sido puesto en adopción!',
+            imageUrl: 'images/logocirculo.png',
+            imageWidth: 150,
+            imageAlt: 'Custom image',
+            confirmButtonColor: '#F1C232'
+          }).then(function(){
+            window.location.href = "index.php"
+          })
+    }else{
+        Swal.fire({
+            title: '¡' + data.name + ' ha sido puesta en adopción!',
+            imageUrl: 'images/logocirculo.png',
+            imageWidth: 150,
+            imageAlt: 'Custom image',
+            confirmButtonColor: '#F1C232'
+          }).then(function(){
+            window.location.href = "index.php"
+          })
+    }
+
+}
+
+
+function encodeImageFileAsURL(element) {
+    let files = element.files;
+
+       let file;
+       for (let i=0; i<files.length ; i++){
+            let reader = new FileReader();
+            file = files [i];
+            reader.onload = (file) => {
+                if(photo1 == null){
+                    photo1 = reader.result;
+                }else{
+                    photo2 = reader.result
+                }   
+             }
+            reader.readAsDataURL(file)
+        }
 }
 
 $(document).ready(function(){
@@ -71,8 +136,6 @@ $(document).ready(function(){
 });
 
 $(window).resize(function() {
-    console.log("klk")
-
     if($(window).width() < 768){
         $('#row2').css('margin-right', '');
         $('#row2').css('margin-left', '');
