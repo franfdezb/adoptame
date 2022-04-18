@@ -57,3 +57,24 @@ function encodeImageFileAsURL(element) {
             reader.readAsDataURL(file)
         }
 }
+
+$(document).ready(function(){
+    if($(window).width() < 768){
+        $('#row2').css('margin-right', '');
+        $('#row2').css('margin-left', '');
+        $('#row2').css('width', '');
+    }
+});
+
+$(window).resize(function() {
+    if($(window).width() < 768){
+        $('#row2').css('margin-right', '');
+        $('#row2').css('margin-left', '');
+        $('#row2').css('width', '');
+    }
+
+    if($(window).width() > 768){
+        $('#row2').css('width', '');
+        $('#row2').css('margin-left', '30px');
+    }
+});
