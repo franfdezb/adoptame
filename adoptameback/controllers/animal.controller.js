@@ -11,6 +11,7 @@ exports.createanimal = (req, res) => {
       gender: req.body.gender,
       size: req.body.size,
       specie: req.body.specie,
+      address: req.body.address,
       adoptionStatus: req.body.adoptionStatus,
       refugeid: req.body.refugeid,
       userid: req.body.userid,
@@ -23,7 +24,7 @@ exports.createanimal = (req, res) => {
       microchip: req.body.microchip,
     })
       .then(animal => {
-        res.send({ message: "Animal creado con éxito" });
+        res.send({ message: animal.id });
       })
       .catch(err => {
         res.status(500).send({ message: err.message });

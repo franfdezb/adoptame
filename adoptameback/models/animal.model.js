@@ -22,6 +22,9 @@ module.exports = (sequelize, Sequelize) => {
       specie: {
         type: Sequelize.STRING
       },
+      address: {
+        type: Sequelize.STRING
+      },
       adoptionStatus: {
         type: Sequelize.BOOLEAN,
         defaultValue: true
