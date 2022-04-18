@@ -14,15 +14,20 @@ module.exports = (sequelize, Sequelize) => {
             key: 'id'
         }
       },
-      verified: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
+      photo1: {
+        type: Sequelize.BLOB
+      },
+      moreinfo: {
+        type: Sequelize.STRING
       },
       city: {
         type: Sequelize.STRING
       },
-      postalcode: {
-        type: Sequelize.INTEGER,
+      email: {
+        type: Sequelize.STRING
+      },
+      bankaccount: {
+        type: Sequelize.STRING
       }
     });
     return Refuge;
