@@ -1,5 +1,6 @@
 var photo1 = null;
 var photo2 = null;
+var idanimal = null;
 
 function validateForm1() {
     $("#errors-container").empty();
@@ -16,6 +17,7 @@ function validateForm1() {
         size = 'Grande';
     }
     weight = $("#weight").val();
+    address = $("#address").val();
 
     if($("#gender").val() == 0){
         gender = 'Macho';
@@ -46,7 +48,12 @@ function validateForm1() {
         $("#errors-container").append(
             getError("Debes subir al menos una foto del animal")
         );
-        errorCounter++;
+    }
+
+    if ($("#animalname").val() == '') {
+        $("#errors-container").append(
+            getError("Debes ponerle un nombre al animal")
+        );
     }
 
     let animal = {
@@ -57,6 +64,7 @@ function validateForm1() {
         gender: gender,
         size: size,
         specie: specie,
+        address: address,
         adoptionStatus: adoptionStatus,
         refugeid: refugeid,
         userid: userid,
@@ -95,7 +103,10 @@ function resultAnimal(animal) {
         method: "POST",
         data: JSON.stringify(animal),
         contentType: "application/json",
-        success: handleRegister(animal),
+        success: function(response){
+            idanimal = response.message;
+            handleRegister(animal);
+        },
         error: function(response) {
             console.log(response);
             alert("Ha habido un error al intentar registrarse");
@@ -105,7 +116,6 @@ function resultAnimal(animal) {
 
 function handleRegister(data) {
 
-    if(data.gender == 0){
         Swal.fire({
             title: '¡' + data.name + ' ha sido puesto en adopción!',
             imageUrl: 'images/logocirculo.png',
@@ -113,22 +123,9 @@ function handleRegister(data) {
             imageAlt: 'Custom image',
             confirmButtonColor: '#F1C232'
           }).then(function(){
-            window.location.href = "index.php"
-          })
-    }else{
-        Swal.fire({
-            title: '¡' + data.name + ' ha sido puesta en adopción!',
-            imageUrl: 'images/logocirculo.png',
-            imageWidth: 150,
-            imageAlt: 'Custom image',
-            confirmButtonColor: '#F1C232'
-          }).then(function(){
-            window.location.href = "index.php"
+            window.location.href = "animal.php?id=" + idanimal;
           })
     }
-
-}
-
 
 function encodeImageFileAsURL(element) {
     let files = element.files;
