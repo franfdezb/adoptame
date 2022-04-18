@@ -341,8 +341,7 @@ profile-header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width:25rem;
-    min-width:25rem;
+    min-width:26rem;
     margin: 10px;
     text-align: center;
 
@@ -361,4 +360,12 @@ profile-header {
 #cuadrado img {
     display: inline-block;
     vertical-align: middle;
+}
+
+.buttonperfilanimal{
+    margin: 4px 25px;
+    padding: 9px 0px;
+    border: 2px solid #555555;
+    background-color: #F1C232 !important;
+    border-radius: 7px;
 }
