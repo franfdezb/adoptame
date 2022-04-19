@@ -1,8 +1,8 @@
 //Creación tabla animales con los datos que mete un usuario
 module.exports = (sequelize, Sequelize) => {
     const Refuge = sequelize.define("refuges", {
-      name: {
-        type: Sequelize.INTEGER
+      refugename: {
+        type: Sequelize.STRING
       },
       address: {
         type: Sequelize.STRING,
@@ -28,6 +28,9 @@ module.exports = (sequelize, Sequelize) => {
       },
       bankaccount: {
         type: Sequelize.STRING
+      },
+      telephone: {
+        type: Sequelize.INTEGER
       }
     });
     return Refuge;

@@ -32,12 +32,12 @@
                 </div>
                 <p></p>
                 <div class="form-group">
-                    <label>Introduce la dirección</label>
+                    <label>Introduce la dirección (*)</label>
                     <input required class="form-control" name="Raza" id="address" placeholder="Dirección completa del refugio/protectora">
                 </div>
                 <p></p>
                 <div class="form-group">
-                    <label>Introduzca la provincia donde se encuentra</label>
+                    <label>Introduce la provincia donde se encuentra (*)</label>
                     <select required name="provincia" class="form-control" id="city">
                         <option value="">Elige Provincia</option>
                         <option value="Álava/Araba">Álava/Araba</option>
@@ -96,10 +96,14 @@
                 </div>
                 <p></p>
                 <div class="form-group">
-                    <label>Introduce el e-mail</label>
+                    <label>Introduce el e-mail (*)</label>
                     <input required class="form-control" name="Peso" id="email" placeholder="E-mail">
                 </div>
                 <p></p>
+                <div class="form-group">
+                    <label>Introduce el teléfono (*)</label>
+                    <input required class="form-control" name="Peso" id="telephone" placeholder="Teléfono">
+                </div>
                 <div class="form-group">
                     <label>Si quieres recibir donaciones, pon aquí una cuenta bancaria</label>
                     <input required class="form-control" name="cuentabancaria" id="bankaccount" placeholder="Cuenta bancaria">

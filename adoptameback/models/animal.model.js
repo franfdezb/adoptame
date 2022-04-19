@@ -2,10 +2,10 @@
 module.exports = (sequelize, Sequelize) => {
     const Animal = sequelize.define("animals", {
       weight: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       raze: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
       },
       name: {
         type: Sequelize.STRING

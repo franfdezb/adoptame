@@ -1,6 +1,7 @@
 var photo1 = null;
 var photo2 = null;
 var idanimal = null;
+var errorCounter = 0;
 
 function validateForm1() {
     $("#errors-container").empty();
@@ -48,12 +49,14 @@ function validateForm1() {
         $("#errors-container").append(
             getError("Debes subir al menos una foto del animal")
         );
+        errorCounter++;
     }
 
     if ($("#animalname").val() == '') {
         $("#errors-container").append(
             getError("Debes ponerle un nombre al animal")
         );
+        errorCounter++;
     }
 
     let animal = {
@@ -98,6 +101,11 @@ function removeError(error) {
 
 function resultAnimal(animal) {
 
+    if(errorCounter > 0){
+        errorCounter = 0;
+        //Saltan los errores y no se envía el formulario
+    }else{
+        
     $.ajax({
         url: "http://localhost:8080/api/animal/create",
         method: "POST",
@@ -112,6 +120,8 @@ function resultAnimal(animal) {
             alert("Ha habido un error al intentar registrarse");
         }
     });
+    }
+
 }
 
 function handleRegister(data) {
@@ -125,7 +135,7 @@ function handleRegister(data) {
           }).then(function(){
             window.location.href = "animal.php?id=" + idanimal;
           })
-    }
+}
 
 function encodeImageFileAsURL(element) {
     let files = element.files;
