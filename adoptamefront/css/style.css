@@ -341,11 +341,89 @@ profile-header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width:26rem;
+    max-width:26rem;
     margin: 10px;
     text-align: center;
 
 }
+
+.boxeoprotectora{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width:26rem;
+    margin: 10px;
+    text-align: center;
+
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: 180px;
+  }
+  
+  div.desc {
+    padding: 2px;
+    text-align: center;
+  }
+  div.desc1 {
+    padding: 2px;
+    text-align: center;
+    margin-top: -10px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .responsive {
+    padding: 3px 9px;
+    float: left;
+    width: 19.99999%;
+  }
+  
+  @media only screen and (max-width: 922px) {
+    .responsive {
+      width: 33.33333%;
+      margin: 6px 0;
+    }
+  }
+
+  @media only screen and (min-width: 900px) and (max-width: 1136px) {
+    .responsive {
+      width: 24.99999%;
+      margin: 6px 0;
+    }
+  }
+
+  @media only screen and (min-width: 500px) and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+      padding: 3px 35px;
+    }
+  }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
 #masinfo{
     margin-top: 25px;

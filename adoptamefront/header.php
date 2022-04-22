@@ -4,7 +4,7 @@
     </div>
 
     <div class="column-center" style="float: left; width: 50%;">
-        <img src="images/banner.png" id="fotobanner" alt="banner" style="width: 60%; padding-top: 10px; padding-bottom: 10px;">
+    <img src="images/banner.png" id="fotobanner" alt="banner" style="width: 60%; padding-top: 10px; padding-bottom: 10px;">
     </div>
 
     <div class="dropdown" style="float: left; width: 25%; position: relative;">
