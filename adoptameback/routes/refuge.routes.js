@@ -9,4 +9,5 @@ module.exports = function(app) {
   });
   app.post("/api/refuge/create", controller.createrefuge);
   app.get('/api/refuge/:id', controller.searchrefuge);
+  app.get('/api/refuge/getall/:offset', controller.getallrefuges);
 };

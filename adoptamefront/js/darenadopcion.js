@@ -3,6 +3,24 @@ var photo2 = null;
 var idanimal = null;
 var errorCounter = 0;
 
+$(document).ready(function(){
+    checkLogin();
+});
+
+function checkLogin(){
+    if(localStorage.tokenTime == null){
+        $( ".container" ).remove();
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Necesitas estar logeado para poder hacer esto',
+            confirmButtonColor: '#F1C232'
+        }).then(function(){
+            window.location.href = "login.php";
+          })
+    }
+}
+
 function validateForm1() {
     $("#errors-container").empty();
 

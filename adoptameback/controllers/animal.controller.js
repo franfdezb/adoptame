@@ -41,6 +41,7 @@ exports.createanimal = (req, res) => {
   exports.getallanimals = (req, res) => {
 
     Animal.findAll({
-      limit: 5
+      limit: 15,
+      offset: req.params.offset
     }).then(animals => res.json(animals))
   }

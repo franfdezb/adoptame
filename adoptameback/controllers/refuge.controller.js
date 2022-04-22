@@ -28,3 +28,11 @@ exports.createrefuge = (req, res) => {
         res.send(data);
     });
   }
+
+  exports.getallrefuges = (req, res) => {
+
+    Refuge.findAll({
+      limit: 15,
+      offset: req.params.offset
+    }).then(refuges => res.json(refuges))
+  }

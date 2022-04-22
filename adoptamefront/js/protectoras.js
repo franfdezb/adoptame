@@ -1,22 +1,22 @@
 var offset = 0;
 
 $(document).ready(function(){
-    obtainAnimalData();
+    obtainRefugeData();
 });
 
 function loadMoreAnimals(){
     offset = offset + 15;
-    obtainAnimalData();
+    obtainRefugeData();
 }
 
-function obtainAnimalData() {
+function obtainRefugeData() {
 
     $.ajax({
-        url: "http://localhost:8080/api/animal/getall/" + offset,
+        url: "http://localhost:8080/api/refuge/getall/" + offset,
         method: "GET",
         contentType: "application/json",
         success: function(response){
-            //console.log(response);
+            console.log(response);
             handleAnimalData(response);
         },
         error: function(response) {
@@ -47,10 +47,10 @@ function handleAnimalData(data){
         html += '<a target="_blank" href="animal.php?id=' + data[i].id + '">\n';
         html += '<img src=' + '"' + fotodesencriptada + '"' + ' width="600" height="400">\n';
         html += '</a>\n';
-        html += '<div class="desc" style="font-weight: bold; font-size: 26px;">' + data[i].name + '</div>\n';
-        html += '<div class="desc1" style="font-size: 20px;">Lugar: ' + data[i].address + '</div>\n';
+        html += '<div class="desc" style="font-weight: bold; font-size: 26px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + data[i].refugename + '</div>\n';
+        html += '<div class="desc1" style="font-size: 20px;">Lugar: ' + data[i].city + '</div>\n';
         html += '<div>\n';
-        html += '<a class="buttonperfilanimal" href="animal.php?id=' + data[i].id + '" id="button" style="background-color: #03fc49 !important;display:block; margin: 0px !important;text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">EN ADOPCIÓN</a>';
+        html += '<a class="buttonperfilanimal" href="protectora.php?id=' + data[i].id + '" id="button" style="background-color: #F1C232 !important;display:block; margin: 0px !important;text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">MÁS INFO</a>';
         html += '</div>\n';
         html += '</div>\n';
         html += '</div>\n';

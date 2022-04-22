@@ -18,7 +18,7 @@
 
   <?php include 'footer.php' ?>
 
-  <script src="js/index.js"></script>
+  <script src="js/protectoras.js"></script>
 
 </body>
 
