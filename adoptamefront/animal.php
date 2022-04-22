@@ -12,7 +12,7 @@
   <div class="padre" style="float: left; display: flex; width: 100%; height: calc(100% - 90%) !important; margin-bottom: 25px; padding-left: 6px;">
     <div class="column-left boxeo">
         <p style="margin-top: 15px;">
-        <a href="#" class="buttonperfilanimal" id="button" style="text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px;">¡ADÓPTAME!</a>
+        <a class="buttonperfilanimal" id="buttonadoptar" style="text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px;">¡ADÓPTAME!</a>
         <a href="#" class="buttonperfilanimal" id="button" style="text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px">¡APADRÍNAME!</a>
         </p>
         <img id="primeraimagen"></img>

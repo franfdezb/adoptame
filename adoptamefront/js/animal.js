@@ -38,6 +38,8 @@ function handleAnimalData(data){
 
     $("#primeraimagen").attr('src', fotodesencriptada);
 
+    $('#buttonadoptar').attr('href','adoptaranimal.php?id=' + data.id);
+
     $("#name").html("Nombre: <b>" + data.name.toUpperCase() + "</b>");
     $("#gender").html("Sexo: " + data.gender);
     $("#especie").html("<b>· Especie: </b>" + data.specie);

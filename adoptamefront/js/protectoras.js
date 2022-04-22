@@ -44,7 +44,7 @@ function handleAnimalData(data){
     
         html += '<div class="responsive">\n';
         html += '<div class="gallery" style="text-align: center">\n';
-        html += '<a target="_blank" href="animal.php?id=' + data[i].id + '">\n';
+        html += '<a target="_blank" href="protectora.php?id=' + data[i].id + '">\n';
         html += '<img src=' + '"' + fotodesencriptada + '"' + ' width="600" height="400">\n';
         html += '</a>\n';
         html += '<div class="desc" style="font-weight: bold; font-size: 26px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + data[i].refugename + '</div>\n';
