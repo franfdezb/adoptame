@@ -37,3 +37,10 @@ exports.createanimal = (req, res) => {
         res.send(data);
     });
   }
+
+  exports.getallanimals = (req, res) => {
+
+    Animal.findAll({
+      limit: 5
+    }).then(animals => res.json(animals))
+  }
