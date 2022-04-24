@@ -346,7 +346,7 @@ profile-header {
     align-items: center;
     justify-content: center;
     max-width:26rem;
-    margin: 10px;
+    margin: 18px;
     text-align: center;
 
 }
@@ -451,4 +451,18 @@ div.gallery {
     border: 2px solid #555555;
     background-color: #F1C232 !important;
     border-radius: 7px;
+}
+
+.buttonperfilanimal1{
+    margin: 4px 5px;
+    padding: 9px 0px;
+    border: 2px solid #555555;
+    background-color: #F1C232 !important;
+    border-radius: 7px;
+}
+
+@media (max-width: 767px){
+    .col-md-9{
+        margin-left: -28px !important;
+    }
 }

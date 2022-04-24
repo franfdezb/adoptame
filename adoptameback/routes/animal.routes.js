@@ -10,4 +10,5 @@ module.exports = function(app) {
   app.post("/api/animal/create", controller.createanimal);
   app.get('/api/animal/:id', controller.searchanimal);
   app.get('/api/animal/getall/:offset', controller.getallanimals);
+  app.put('/api/animal/:id', controller.editanimal);
 };

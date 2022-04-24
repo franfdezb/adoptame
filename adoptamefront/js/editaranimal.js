@@ -1,23 +1,67 @@
-var photo1 = null;
-var photo2 = null;
-var idanimal = null;
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const id = parseInt(urlParams.get('id'));
 var errorCounter = 0;
+var animalid = null;
 
-$(document).ready(function(){
-    checkLogin();
+ $(document).ready(function(){
+    obtainAnimalData();
+    //handleUserData();
+    //fillUserData();
 });
 
-function checkLogin(){
-    if(localStorage.tokenTime == null){
-        $( ".container" ).remove();
-        Swal.fire({
-            icon: 'error',
-            title: '¡Error!',
-            text: 'Necesitas estar logeado para poder hacer esto',
-            confirmButtonColor: '#F1C232'
-        }).then(function(){
-            window.location.href = "login.php";
-          })
+function obtainAnimalData() {
+
+    $.ajax({
+        url: "http://localhost:8080/api/animal/" + id,
+        method: "GET",
+        contentType: "application/json",
+        success: function(response){
+            fillAnimalData(response);
+        },
+        error: function(response) {
+            console.log(response);
+            alert("Ha habido un error al buscar el animal");
+        }
+    });
+}
+
+function fillAnimalData(data){
+    $("#tituloformulario").append("Editar página personal de " + data.name)
+    $("#animalname").val(data.name)
+    $("#specie").val(data.specie)
+    $("#raze").val(data.raze)
+    $("#address").val(data.address)
+    $("#weight").val(data.weight)
+    $("#address").val(data.address)
+    $("#fechanacimiento").val(data.age)
+    $("#moreinfo").val(data.moreinfo)
+        
+    if(data.size == 'Pequeño'){
+        $("#size").val(0)
+    } else if(data.size == 'Mediano'){
+        $("#size").val(1)
+    }else{
+        $("#size").val(2)
+    }
+
+    if(data.gender == 'Macho'){
+        $("#size").val(0)
+    } else if(data.size == 'Hembra'){
+        $("#size").val(1)
+    }
+
+    if(data.vaccinated == true){
+        $('#checkboxVacuna').attr('checked', true);
+    }
+    if(data.dewormed == 1){
+        $('#checkboxParasito').attr('checked', true);
+    }
+    if(data.sterilized == 1){
+        $('#checkboxEsteril').attr('checked', true);
+    }
+    if(data.microchip == 1){
+        $('#checkboxChip').attr('checked', true);
     }
 }
 
@@ -51,11 +95,13 @@ function validateForm1() {
     dewormed = $("#checkboxParasito").is(":checked");
     sterilized = $("#checkboxEsteril").is(":checked");
     microchip = $("#checkboxChip").is(":checked");
+    adoptionStatus = $("#checkboxAdoptado").is(":checked");
     if(localStorage.refuge != null){
         refugeid = localStorage.refuge;
     }else{
         refugeid = null;
     }
+
     adoptionStatus = true; //1 para decir que el animal está en adopción
 
     /*if (nombre.trim().length < 3) {
@@ -94,8 +140,6 @@ function validateForm1() {
         refugeid: refugeid,
         userid: userid,
         moreinfo: moreinfo,
-        photo1: photo1,
-        photo2: photo2,
         vaccinated: vaccinated,
         dewormed: dewormed,
         sterilized: sterilized,
@@ -108,19 +152,6 @@ function validateForm1() {
 
 }
 
-function getError(message) {
-    return (
-        "<div onclick='removeError(this);' class='alert alert-danger' role='alert'><strong><i class='fa fa-times' aria-hidden= 'true'></i > Error! </strong>" +
-        message +
-        "</div>"
-    );
-}
-
-
-function removeError(error) {
-    $(error).remove();
-}
-
 function resultAnimal(animal) {
 
     if(errorCounter > 0){
@@ -129,71 +160,28 @@ function resultAnimal(animal) {
     }else{
         
     $.ajax({
-        url: "http://localhost:8080/api/animal/create",
-        method: "POST",
+        url: "http://localhost:8080/api/animal/" + id,
+        method: "PUT",
         data: JSON.stringify(animal),
         contentType: "application/json",
         success: function(response){
-            idanimal = response.message;
-            handleRegister(animal);
+            //idanimal = response.message;
+            //handleRegister(animal);
+            console.log("Solicitud creada correctamente")
         },
         error: function(response) {
             console.log(response);
-            alert("Ha habido un error al intentar registrarse");
+            alert("Ha habido un error al intentar enviar la solicitud");
         }
     });
     }
 
 }
 
-function handleRegister(data) {
-
-        Swal.fire({
-            title: '¡' + data.name + ' ha sido puesto en adopción!',
-            imageUrl: 'images/logocirculo.png',
-            imageWidth: 150,
-            imageAlt: 'Custom image',
-            confirmButtonColor: '#F1C232'
-          }).then(function(){
-            window.location.href = "animal.php?id=" + idanimal;
-          })
+function getError(message) {
+    return (
+        "<div onclick='removeError(this);' class='alert alert-danger' role='alert'><strong><i class='fa fa-times' aria-hidden= 'true'></i > Error! </strong>" +
+        message +
+        "</div>"
+    );
 }
-
-function encodeImageFileAsURL(element) {
-    let files = element.files;
-
-       let file;
-       for (let i=0; i<files.length ; i++){
-            let reader = new FileReader();
-            file = files [i];
-            reader.onload = (file) => {
-                if(photo1 == null){
-                    photo1 = reader.result;
-                }else{
-                    photo2 = reader.result;
-                }   
-             }
-            reader.readAsDataURL(file)
-        }
-}
-
-$(document).ready(function(){
-    if($(window).width() < 768){
-        $('#row2').css('margin-right', '');
-        $('#row2').css('margin-left', '');
-        $('#row2').css('width', '');
-    }
-});
-
-$(window).resize(function() {
-    if($(window).width() < 768){
-        $('#row2').css('margin-right', '');
-        $('#row2').css('margin-left', '');
-        $('#row2').css('width', '');
-    }
-
-    if($(window).width() > 768){
-        $('#row2').css('width', '');
-        $('#row2').css('margin-left', '30px');
-    }
-});

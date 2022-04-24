@@ -89,6 +89,7 @@ function resultRefuge(refuge) {
         contentType: "application/json",
         success: function(response){
             idrefuge = response.message;
+            localStorage.setItem("refuge", idrefuge)
             handleRegister(refuge);
         },
         error: function(response) {

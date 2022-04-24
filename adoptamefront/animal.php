@@ -12,8 +12,8 @@
   <div class="padre" style="float: left; display: flex; width: 100%; height: calc(100% - 90%) !important; margin-bottom: 25px; padding-left: 6px;">
     <div class="column-left boxeo">
         <p style="margin-top: 15px;">
-        <a class="buttonperfilanimal" id="buttonadoptar" style="text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px;">¡ADÓPTAME!</a>
-        <a href="#" class="buttonperfilanimal" id="button" style="text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px">¡APADRÍNAME!</a>
+        <a class="buttonperfilanimal" id="buttonadoptar" style="text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px;"></a>
+        <a href="#" class="buttonperfilanimal" id="buttonapadrinar" style="text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px"></a>
         </p>
         <img id="primeraimagen"></img>
         <h3 id="name"></h3>
@@ -28,7 +28,7 @@
             <img src="/images/banderaespaña.png" style="width: 40px; height: 30px">
             <span id="lugar"></span>
         </div>
-        <div id="cuadradoinfo" class="buttonperfilanimal" style="padding: 9px 10px !important; background-color: #FFFCBD !important;">
+        <div id="cuadradoinfo" class="buttonperfilanimal1" style="padding: 9px 10px !important; background-color: #FFFCBD !important;">
             <h5 id="especie"></h5>
             <h5 id="raza"></h5>
             <h5 id="fecha"></h5>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="column-right boxeo">
-        <div class="buttonperfilanimal" style="padding: 9px 10px !important; background-color: #FFFCBD !important;">
+        <div class="buttonperfilanimal1" style="padding: 9px 10px !important; background-color: #FFFCBD !important;">
             <h5 id="peso" style="padding-bottom: 15px;"><b>INFORMACIÓN SANITARIA</b></h5>
             <h5 id="vacunado">Vacunado: </h5>
             <h5 id="desparasitado">Desparasitado: </h5>

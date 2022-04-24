@@ -15,7 +15,7 @@ function obtainAnimalData() {
         method: "GET",
         contentType: "application/json",
         success: function(response){
-            console.log(response);
+            checkIfUserOwner(response);
             handleAnimalData(response);
         },
         error: function(response) {
@@ -23,6 +23,21 @@ function obtainAnimalData() {
             alert("Ha habido un error al buscar el animal");
         }
     });
+}
+
+function checkIfUserOwner(data){
+    if(data.userid == localStorage.userId){
+        $("#buttonadoptar").html("EDITAR")
+        $("#buttonapadrinar").html("ELIMINAR")
+        
+
+        $('#buttonadoptar').attr('href','editaranimal.php?id=' + id);
+    }else{
+        $("#buttonadoptar").html("¡ADÓPTAME!")
+        $("#buttonapadrinar").html("APADRÍNAME!")
+
+        $('#buttonadoptar').attr('href','adoptaranimal.php?id=' + id);
+    }
 }
 
 function handleAnimalData(data){
@@ -37,8 +52,6 @@ function handleAnimalData(data){
     //console.log(decodedStr)
 
     $("#primeraimagen").attr('src', fotodesencriptada);
-
-    $('#buttonadoptar').attr('href','adoptaranimal.php?id=' + data.id);
 
     $("#name").html("Nombre: <b>" + data.name.toUpperCase() + "</b>");
     $("#gender").html("Sexo: " + data.gender);
