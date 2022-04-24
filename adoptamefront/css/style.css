@@ -294,6 +294,10 @@ profile-header {
         display: none;
     }
 
+    .buttonperfilanimal {
+        margin: 4px 5px !important;
+    }
+
     .dropdown{
         display: none;
     }

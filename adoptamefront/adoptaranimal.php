@@ -24,15 +24,19 @@
 	            <h4 id="tituloformulario" class="card-title mt-3 text-center"></h4>
                 <div class="form-group">
                     <label>Nombre</label>
-                    <input required class="form-control" name="Peso" id="nombre" placeholder="Nombre">
+                    <input required class="form-control" name="Peso" id="nombre" placeholder="Nombre" disabled>
                 </div>
                 <div class="form-group">
                     <label>Apellidos</label>
-                    <input required class="form-control" name="Peso" id="apellidos" placeholder="Apellidos">
+                    <input required class="form-control" name="Peso" id="apellidos" placeholder="Apellidos" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Dirección de correo electrónico</label>
+                    <input required class="form-control" name="Peso" id="email" placeholder="Correo electrónico" disabled>
                 </div>
                 <div class="form-group">
                     <label>Número de teléfono</label>
-                    <input required class="form-control" name="Peso" id="telefono" placeholder="Teléfono">
+                    <input required class="form-control" name="Peso" id="telefono" placeholder="Teléfono"disabled>
                 </div>
                 <div class="form-group">
                     <label>Documento Nacional de Identidad (DNI)</label>
@@ -51,7 +55,7 @@
                 </article>
                 <h7 style="width: 100%; padding-bottom: 15px; text-align: center;">(*) Campos obligatorios</h7>
                 <div class="form-group" style="width: 100%; text-align: center;">
-                            <button onclick="validateForm1()" class="button2"> CONFIRMAR ANIMAL </button>
+                            <button onclick="validateForm1()" class="button2"> CONFIRMAR </button>
                 </div> <!-- form-group// -->    
   <!--container end.//-->
 
