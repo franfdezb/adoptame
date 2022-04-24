@@ -11,4 +11,5 @@ module.exports = function(app) {
   app.get('/api/animal/:id', controller.searchanimal);
   app.get('/api/animal/getall/:offset', controller.getallanimals);
   app.put('/api/animal/:id', controller.editanimal);
+  app.delete('/api/animal/:id', controller.deleteanimal);
 };

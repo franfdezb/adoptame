@@ -29,12 +29,16 @@ function checkIfUserOwner(data){
     if(data.userid == localStorage.userId){
         $("#buttonadoptar").html("EDITAR")
         $("#buttonapadrinar").html("ELIMINAR")
+
+        $('#buttonapadrinar').attr('onclick', 'eliminar()');
         
 
         $('#buttonadoptar').attr('href','editaranimal.php?id=' + id);
     }else{
         $("#buttonadoptar").html("¡ADÓPTAME!")
         $("#buttonapadrinar").html("APADRÍNAME!")
+
+        $('#buttonapadrinar').attr('onclick', 'menuapadrinar()');
 
         $('#buttonadoptar').attr('href','adoptaranimal.php?id=' + id);
     }
@@ -67,7 +71,7 @@ function handleAnimalData(data){
 
     //--------------------------
 
-    if(data.adoptionStatus == true){
+    if(data.adoptionStatus == false){
         $("#adoptionStatus").append("<b>" + "EN ADOPCIÓN" + "<b>")
     }else{
         $("#adoptionStatus").append("<b>" + "ADOPTADO" + "<b>")
@@ -101,4 +105,44 @@ function handleAnimalData(data){
     }
 
 
+}
+
+function eliminar(){
+    Swal.fire({
+        title: '¿Estás seguro de que quieres eliminar este animal?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#F1C232',
+        confirmButtonText: 'SÍ',
+        cancelButtonText: 'CANCELAR'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            modalEliminar();
+            $.ajax({
+                url: "http://localhost:8080/api/animal/" + id,
+                method: "DELETE",
+                contentType: "application/json",
+                success: function(response){
+
+                },
+                error: function(response) {
+                    console.log(response);
+                    alert("Ha habido un error al buscar el animal");
+                }
+            });
+        }
+      })
+}
+
+function modalEliminar(){
+    Swal.fire({
+        title: 'Perfil de animal eliminado',
+        imageUrl: 'images/logocirculo.png',
+        imageWidth: 150,
+        imageAlt: 'Custom image',
+        confirmButtonColor: '#F1C232'
+    }).then(function(){
+        window.location.href = "index.php"
+    })
 }

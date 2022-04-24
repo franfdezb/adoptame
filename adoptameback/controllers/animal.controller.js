@@ -76,3 +76,11 @@ exports.createanimal = (req, res) => {
         res.status(500).send({ message: err.message })
       )
   }
+
+exports.deleteanimal = (req, res) => {
+  Animal.destroy({
+    where: {
+        id: req.params.id
+    }
+})
+}

@@ -56,7 +56,7 @@ function validateForm1() {
     }else{
         refugeid = null;
     }
-    adoptionStatus = true; //1 para decir que el animal está en adopción
+    adoptionStatus = false; //1 para decir que el animal está en adopción
 
     /*if (nombre.trim().length < 3) {
         $("#errors-container").append(

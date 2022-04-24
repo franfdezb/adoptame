@@ -17,7 +17,21 @@ function obtainAnimalData() {
         method: "GET",
         contentType: "application/json",
         success: function(response){
-            fillAnimalData(response);
+            if(response.userid == localStorage.userId){
+                fillAnimalData(response);
+            }else{
+                    if(localStorage.tokenTime == null){
+                        $( ".container" ).remove();
+                        Swal.fire({
+                            icon: 'error',
+                            title: '¡Error!',
+                            text: 'No tienes permitido hacer esto',
+                            confirmButtonColor: '#F1C232'
+                        }).then(function(){
+                            window.location.href = "index.php";
+                          })
+                    }
+            }
         },
         error: function(response) {
             console.log(response);
@@ -102,8 +116,6 @@ function validateForm1() {
         refugeid = null;
     }
 
-    adoptionStatus = true; //1 para decir que el animal está en adopción
-
     /*if (nombre.trim().length < 3) {
         $("#errors-container").append(
             getError("El nombre debe tener al menos 3 caracteres de longitud")
@@ -167,7 +179,7 @@ function resultAnimal(animal) {
         success: function(response){
             //idanimal = response.message;
             //handleRegister(animal);
-            console.log("Solicitud creada correctamente")
+            window.location.href = "animal.php?id=" + id;
         },
         error: function(response) {
             console.log(response);
