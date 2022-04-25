@@ -70,7 +70,7 @@ function handleRefugeData(data){
 function obtainAnimalData() {
 
     $.ajax({
-        url: "http://localhost:8080/api/animal/getallbyid/" + refugeuserid,
+        url: "http://localhost:8080/animal/getallbyid/" + refugeuserid,
         method: "GET",
         contentType: "application/json",
         success: function(response){

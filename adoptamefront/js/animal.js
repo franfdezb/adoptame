@@ -11,7 +11,7 @@ const id = parseInt(urlParams.get('id'));
 function obtainAnimalData() {
 
     $.ajax({
-        url: "http://localhost:8080/api/animal/" + id,
+        url: "http://localhost:8080/animal/" + id,
         method: "GET",
         contentType: "application/json",
         success: function(response){
@@ -57,7 +57,16 @@ function handleAnimalData(data){
     var fotodesencriptada = atob(b64encoded);
     //console.log(decodedStr)
 
+    var u8 = new Uint8Array(data.photo2.data);
+    var decoder = new TextDecoder('utf8');
+    var b64encoded = btoa(decoder.decode(u8));
+
+    var foto2desencriptada = atob(b64encoded)
+    console.log(fotodesencriptada)
+    console.log(foto2desencriptada)
+
     $("#primeraimagen").attr('src', fotodesencriptada);
+    $("#segundaimagen").attr('src', foto2desencriptada);
 
     $("#name").html("Nombre: <b>" + data.name.toUpperCase() + "</b>");
     $("#gender").html("Sexo: " + data.gender);
@@ -125,6 +134,9 @@ function eliminar(){
                 url: "http://localhost:8080/api/animal/" + id,
                 method: "DELETE",
                 contentType: "application/json",
+                headers: {
+                    'x-access-token': getToken(),
+                },
                 success: function(response){
 
                 },

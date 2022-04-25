@@ -12,7 +12,7 @@ function loadMoreAnimals(){
 function obtainAnimalData() {
 
     $.ajax({
-        url: "http://localhost:8080/api/animal/getall/" + offset,
+        url: "http://localhost:8080/animal/getall/" + offset,
         method: "GET",
         contentType: "application/json",
         success: function(response){

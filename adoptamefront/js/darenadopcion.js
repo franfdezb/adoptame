@@ -131,6 +131,9 @@ function resultAnimal(animal) {
     $.ajax({
         url: "http://localhost:8080/api/animal/create",
         method: "POST",
+        headers: {
+            'x-access-token': getToken(),
+        },
         data: JSON.stringify(animal),
         contentType: "application/json",
         success: function(response){

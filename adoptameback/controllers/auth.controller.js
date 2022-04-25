@@ -4,8 +4,10 @@
 const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
+const Animal = db.animal;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
+var idusuario = null;
 exports.signup = (req, res) => {
   // Save User to Database
   User.create({
@@ -76,3 +78,18 @@ exports.signin = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
+verifyUserid = (req, res, next) => {
+  Animal.findOne({ where: { id: req.params.id }}).then(data => {
+    console.log("HJGFSBDAGIVSBGIVDSAFBPIUDSAVFPDSAIUOVFDSpoifbPS")
+    console.log(data.userid)
+    console.log(req.userId)
+    console.log(idusuario)
+    if(data['userid'] == idusuario){
+      console.log("HJGFSBDAGIVSBGIVDSAFBPIUDSAVFPDSAIUOVFDSpoifbPS")
+      next();
+    }else{
+      //res send error
+    }
+});
+}

@@ -134,6 +134,9 @@ function resultRefuge(refuge) {
         method: "PUT",
         data: JSON.stringify(refuge),
         contentType: "application/json",
+        headers: {
+            'x-access-token': getToken(),
+        },
         success: function(response){
             window.location.href = "protectora.php?id=" + id;
         },

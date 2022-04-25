@@ -13,7 +13,7 @@ var animalid = null;
 function obtainAnimalData() {
 
     $.ajax({
-        url: "http://localhost:8080/api/animal/" + id,
+        url: "http://localhost:8080/animal/" + id,
         method: "GET",
         contentType: "application/json",
         success: function(response){
@@ -174,6 +174,9 @@ function resultAnimal(animal) {
         method: "PUT",
         data: JSON.stringify(animal),
         contentType: "application/json",
+        headers: {
+            'x-access-token': getToken(),
+        },
         success: function(response){
             //idanimal = response.message;
             //handleRegister(animal);

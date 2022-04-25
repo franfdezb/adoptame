@@ -13,7 +13,7 @@ var animalid = null;
 function obtainAnimalData() {
 
     $.ajax({
-        url: "http://localhost:8080/api/animal/" + id,
+        url: "http://localhost:8080/animal/" + id,
         method: "GET",
         contentType: "application/json",
         success: function(response){
@@ -64,9 +64,16 @@ function validateForm1() {
     moreinfo = $("#moreinfo").val();
     animalid = parseInt(id);
 
-    if ($("#myfile").val() == '') {
+    if ($("#dni").val() == '') {
         $("#errors-container").append(
-            getError("Debes subir al menos una foto del animal")
+            getError("Debes poner tu DNI")
+        );
+        errorCounter++;
+    }
+
+    if($("#checkboxVacuna").is(":checked") == 0){
+        $("#errors-container").append(
+            getError("Debes marcar la casilla que afirma tu compromiso con el animal")
         );
         errorCounter++;
     }
@@ -121,3 +128,12 @@ function resultApplication(adoptapplication) {
     }
 
 }
+
+function getError(message) {
+    return (
+        "<div onclick='removeError(this);' class='alert alert-danger' role='alert'><strong><i class='fa fa-times' aria-hidden= 'true'></i > Error! </strong>" +
+        message +
+        "</div>"
+    );
+}
+
