@@ -22,6 +22,9 @@ module.exports = (sequelize, Sequelize) => {
       isRefuge: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
+      },
+      refugeid: {
+        type: Sequelize.INTEGER,
       }
     });
     return User;

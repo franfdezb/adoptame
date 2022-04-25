@@ -15,7 +15,8 @@ exports.signup = (req, res) => {
     name: req.body.name,
     surname: req.body.surname,
     telephone: req.body.telephone,
-    isRefuge: req.body.isRefuge
+    isRefuge: req.body.isRefuge,
+    refugeid: null
   })
     .then(user => {
         //Si la casilla de isRefuge esta marcada

@@ -21,3 +21,17 @@ const User = db.user;
         res.send(data);
     });
   }
+  
+  exports.edituser = (req, res) => {
+
+    User.update(
+      { refugeid: req.body.refugeid, },
+      { where: { id: req.params.id } }
+    )
+      .then(result =>
+        res.send({ message: 'Usuario editado con éxito' })
+      )
+      .catch(err =>
+        res.status(500).send({ message: err.message })
+      )
+  }

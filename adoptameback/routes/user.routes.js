@@ -24,4 +24,5 @@ module.exports = function(app) {
     controller.adminBoard
   );
   app.get('/api/user/:id', controller.searchuser);
+  app.put('/api/user/:id', controller.edituser);
 };

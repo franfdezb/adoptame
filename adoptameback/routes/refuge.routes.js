@@ -10,4 +10,6 @@ module.exports = function(app) {
   app.post("/api/refuge/create", controller.createrefuge);
   app.get('/api/refuge/:id', controller.searchrefuge);
   app.get('/api/refuge/getall/:offset', controller.getallrefuges);
+  app.put('/api/refuge/:id', controller.editrefuge);
+  app.delete('/api/refuge/:id', controller.deleterefuge);
 };

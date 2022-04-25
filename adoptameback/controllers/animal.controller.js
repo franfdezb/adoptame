@@ -84,3 +84,12 @@ exports.deleteanimal = (req, res) => {
     }
 })
 }
+
+exports.getallrefugeanimals = (req, res) => {
+
+  Animal.findAll({
+    where: {
+        userid: req.params.id
+    }
+}).then(animals => res.json(animals))
+}

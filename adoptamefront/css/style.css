@@ -465,4 +465,8 @@ div.gallery {
     .col-md-9{
         margin-left: -28px !important;
     }
+    
+    #row2{
+        width: 100% !important; margin-left: 30px !important; margin-right: -38px !important;
+    }
 }

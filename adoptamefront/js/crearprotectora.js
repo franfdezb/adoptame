@@ -2,6 +2,65 @@ var photo1 = null;
 var errorCounter = 0;
 var idrefuge = null;
 
+$(document).ready(function(){
+    checkLogin();
+});
+
+function checkLogin(){
+    if(localStorage.tokenTime == null){
+        $( ".container" ).remove();
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Necesitas estar logeado para poder hacer esto',
+            confirmButtonColor: '#F1C232'
+        }).then(function(){
+            window.location.href = "login.php";
+          })
+    }else{
+        checkRefugeProfile();
+    }
+}
+
+function checkRefugeProfile(){
+    $.ajax({
+        url: "http://localhost:8080/api/user/" + localStorage.userId,
+        method: "GET",
+        contentType: "application/json",
+        success: function(response){
+            if(response.isRefuge == false){
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Error!',
+                    text: 'Necesitas tener una cuenta con rol de protectora',
+                    confirmButtonColor: '#F1C232'
+                }).then(function(){
+                    window.location.href = "index.php";
+                  })
+            }else{
+                checkIfUserHasRefuge(response)
+            }
+        },
+        error: function(response) {
+            console.log(response);
+            alert("Ha habido un error al buscar el usuario");
+        }
+    });
+}
+
+function checkIfUserHasRefuge(data){
+    if(data.refugeid != null){
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Ya tienes creada una protectora',
+            confirmButtonColor: '#F1C232'
+        }).then(function(){
+            window.location.href = "index.php";
+          })
+    }
+}
+
 function validateForm1() {
     $("#errors-container").empty();
 
@@ -89,7 +148,6 @@ function resultRefuge(refuge) {
         contentType: "application/json",
         success: function(response){
             idrefuge = response.message;
-            localStorage.setItem("refuge", idrefuge)
             handleRegister(refuge);
         },
         error: function(response) {
@@ -102,6 +160,28 @@ function resultRefuge(refuge) {
 }
 
 function handleRegister(data) {
+
+    //CREAR METODO PUT PARA PONER LA REFUGEID A UN USER
+
+    let userrefuge = {
+        refugeid : idrefuge
+    };
+
+    $.ajax({
+        url: "http://localhost:8080/api/user/" + localStorage.userId,
+        method: "PUT",
+        data: JSON.stringify(userrefuge),
+        contentType: "application/json",
+        success: function(response){
+            //idanimal = response.message;
+            //handleRegister(animal);
+            //window.location.href = "animal.php?id=" + id;
+        },
+        error: function(response) {
+            console.log(response);
+            alert("Ha habido un error al intentar enviar la solicitud");
+        }
+    });
 
         Swal.fire({
             title: '¡El refugio/protectora ha sido creado con éxito!',
