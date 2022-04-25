@@ -9,4 +9,5 @@ module.exports = function(app) {
   });
   app.post("/api/adoptapplication/create", controller.createapplication);
   app.get('/api/adoptapplication/getallbyid/:id', controller.getallapplicationsanimal);
+  app.delete('/api/adoptapplication/:id', controller.deleteapplication);
 };

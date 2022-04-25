@@ -29,3 +29,10 @@ exports.createapplication = (req, res) => {
   }).then(animals => res.json(animals))
   }
   
+  exports.deleteapplication = (req, res) => {
+    Adoptapplication.destroy({
+      where: {
+          id: req.params.id
+      }
+  })
+  }

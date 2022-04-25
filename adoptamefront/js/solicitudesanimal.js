@@ -80,11 +80,29 @@ function handleApplicationsData(data){
         html += '<p style="border: 2px solid #ced4da; margin-bottom: 0 !important">' + data[i].moreinfo + '\n';
         html += '</div>\n';
         html += '<div class="form-group" style="width: 100%; text-align: center;">\n'
-        html += '<button onclick="validateForm1()" class="button2"> ELIMINAR SOLICITUD </button>\n'
+        html += '<button onclick="validateForm1(' + data[i].id + ')" class="button2"> ELIMINAR SOLICITUD </button>\n'
         html += '</div>\n'
         html += '<hr />\n'
 
         $('#contenedorsolicitudes').append(html);
         }
 
+}
+
+function validateForm1(id){
+
+    $.ajax({
+        url: "http://localhost:8080/api/adoptapplication/" + id,
+        method: "DELETE",
+        contentType: "application/json",
+        success: function(response){
+            rellenarSolicitudes();
+        },
+        error: function(response) {
+            console.log(response);
+            alert("Ha habido un error al buscar el animal");
+        }
+    });
+
+    location.reload();
 }
