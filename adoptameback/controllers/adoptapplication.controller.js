@@ -19,3 +19,13 @@ exports.createapplication = (req, res) => {
         res.status(500).send({ message: err.message });
       });
   };
+
+  exports.getallapplicationsanimal = (req, res) => {
+
+    Adoptapplication.findAll({
+      where: {
+          animalid: req.params.id
+      }
+  }).then(animals => res.json(animals))
+  }
+  

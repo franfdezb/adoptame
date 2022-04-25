@@ -17,10 +17,9 @@ function obtainAnimalData() {
         method: "GET",
         contentType: "application/json",
         success: function(response){
-            if(response.userid == localStorage.userId){
+            if(response.userid == localStorage.userId && localStorage.tokenTime != null){
                 fillAnimalData(response);
             }else{
-                    if(localStorage.tokenTime == null){
                         $( ".container" ).remove();
                         Swal.fire({
                             icon: 'error',
@@ -30,7 +29,6 @@ function obtainAnimalData() {
                         }).then(function(){
                             window.location.href = "index.php";
                           })
-                    }
             }
         },
         error: function(response) {

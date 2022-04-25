@@ -102,6 +102,16 @@ function resultApplication(adoptapplication) {
             //idanimal = response.message;
             //handleRegister(animal);
             console.log("Solicitud creada correctamente")
+            Swal.fire({
+                title: '¡Solicitud de adopción enviada con éxito!',
+                text: 'Si el dueño del animal lo considera oportuno, recibirás información pronto',
+                imageUrl: 'images/logocirculo.png',
+                imageWidth: 150,
+                imageAlt: 'Custom image',
+                confirmButtonColor: '#F1C232'
+              }).then(function(){
+                window.location.href = "animal.php?id=" + id;
+              })
         },
         error: function(response) {
             console.log(response);

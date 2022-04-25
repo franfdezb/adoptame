@@ -29,17 +29,19 @@ function checkIfUserOwner(data){
     if(data.userid == localStorage.userId){
         $("#buttonadoptar").html("EDITAR")
         $("#buttonapadrinar").html("ELIMINAR")
+        $("#buttonsolicitudes").html("SOLICITUDES DE ADOPCIÓN")
 
         $('#buttonapadrinar').attr('onclick', 'eliminar()');
-        
 
         $('#buttonadoptar').attr('href','editaranimal.php?id=' + id);
+        $('#buttonsolicitudes').attr('href','solicitudesanimal.php?id=' + id);
     }else{
         $("#buttonadoptar").html("¡ADÓPTAME!")
-        $("#buttonapadrinar").html("APADRÍNAME!")
+        $("#buttonapadrinar").remove()
 
         $('#buttonapadrinar').attr('onclick', 'menuapadrinar()');
 
+        $('#buttonsolicitudes').remove();
         $('#buttonadoptar').attr('href','adoptaranimal.php?id=' + id);
     }
 }

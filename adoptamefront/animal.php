@@ -18,7 +18,7 @@
         <img id="primeraimagen"></img>
         <h3 id="name"></h3>
         <h4 id="gender"></h4>
-        
+        <a href="#" class="buttonperfilanimal" id="buttonsolicitudes" style="text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px"></a>
     </div>
 
     <div class="column-center boxeo">

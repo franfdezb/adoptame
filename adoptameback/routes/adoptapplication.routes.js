@@ -8,4 +8,5 @@ module.exports = function(app) {
     next();
   });
   app.post("/api/adoptapplication/create", controller.createapplication);
+  app.get('/api/adoptapplication/getallbyid/:id', controller.getallapplicationsanimal);
 };
