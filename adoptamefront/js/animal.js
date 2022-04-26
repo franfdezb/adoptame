@@ -57,16 +57,20 @@ function handleAnimalData(data){
     var fotodesencriptada = atob(b64encoded);
     //console.log(decodedStr)
 
-    var u8 = new Uint8Array(data.photo2.data);
-    var decoder = new TextDecoder('utf8');
-    var b64encoded = btoa(decoder.decode(u8));
-
-    var foto2desencriptada = atob(b64encoded)
-    console.log(fotodesencriptada)
-    console.log(foto2desencriptada)
+    if(data.photo2 != null){
+        var u8 = new Uint8Array(data.photo2.data);
+        var decoder = new TextDecoder('utf8');
+        var b64encoded = btoa(decoder.decode(u8));
+    
+        var foto2desencriptada = atob(b64encoded)
+        $("#segundaimagen").attr('src', foto2desencriptada);
+    }else{
+        $(".w3-display-right").remove();
+        $(".w3-display-left").remove();
+    }
 
     $("#primeraimagen").attr('src', fotodesencriptada);
-    $("#segundaimagen").attr('src', foto2desencriptada);
+
 
     $("#name").html("Nombre: <b>" + data.name.toUpperCase() + "</b>");
     $("#gender").html("Sexo: " + data.gender);
