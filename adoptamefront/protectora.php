@@ -35,7 +35,7 @@
             <h5 id="email">E-mail: </h5>
             <h5 id="telephone">Teléfono: </h5>
         </div>
-        <div class="buttonperfilanimal" id="donaciones" style="padding: 9px 10px !important; background-color: #FFFCBD !important;">
+        <div class="buttonperfilanimal" id="donaciones" style="padding: 9px 10px !important; background-color: #FFFCBD !important; max-width: 320px;">
             <h5 id="donar" style="padding-bottom: 15px;"><b>INFORMACIÓN DE CONTACTO</b></h5>
             <h5 id="emailpaypal"></h5>
         </div>

@@ -8,6 +8,6 @@ module.exports = function(app) {
     next();
   });
   app.post("/api/adoptapplication/create", controller.createapplication);
-  app.get('/api/adoptapplication/getallbyid/:id', controller.getallapplicationsanimal);
+  app.get('/api/adoptapplication/getallbyid/:id', [verifyToken, verifyAnimalUserid], controller.getallapplicationsanimal);
   app.delete('/api/adoptapplication/:id', controller.deleteapplication);
 };

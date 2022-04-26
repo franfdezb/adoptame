@@ -11,7 +11,7 @@ const id = parseInt(urlParams.get('id'));
 function obtainAnimalData() {
 
     $.ajax({
-        url: "http://localhost:8080/api/animal/" + id,
+        url: "http://localhost:8080/animal/" + id,
         method: "GET",
         contentType: "application/json",
         success: function(response){
@@ -44,6 +44,9 @@ function rellenarSolicitudes(data){
         url: "http://localhost:8080/api/adoptapplication/getallbyid/" + id,
         method: "GET",
         contentType: "application/json",
+        headers: {
+            'x-access-token': getToken(),
+        },
         success: function(response){
             handleApplicationsData(response);
         },

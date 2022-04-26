@@ -5,6 +5,7 @@ const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
 const Animal = db.animal;
+const Refuge = db.refuge;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 var idusuario = null;

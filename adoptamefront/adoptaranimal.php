@@ -39,7 +39,7 @@
                     <input required class="form-control" name="Peso" id="telefono" placeholder="Teléfono"disabled>
                 </div>
                 <div class="form-group">
-                    <label>Documento Nacional de Identidad (DNI)</label>
+                    <label>Documento Nacional de Identidad (DNI) (*)</label>
                     <input required class="form-control" name="Peso" id="dni" placeholder="DNI">
                 </div>
                 <p></p>

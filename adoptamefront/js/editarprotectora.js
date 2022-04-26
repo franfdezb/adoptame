@@ -13,7 +13,7 @@ var animalid = null;
 function obtainRefugeData() {
 
     $.ajax({
-        url: "http://localhost:8080/api/refuge/" + id,
+        url: "http://localhost:8080/refuge/" + id,
         method: "GET",
         contentType: "application/json",
         success: function(response){
@@ -46,7 +46,7 @@ function fillRefugeData(data){
     $("#city").val(data.city)
     $("#email").val(data.email)
     $("#address").val(data.address)
-    $("#bankaccount").val(data.bankaccount)
+    $("#paypal").val(data.paypal)
     $("#telephone").val(data.telephone)
     $("#moreinfo").val(data.moreinfo)
 }
@@ -58,7 +58,7 @@ function validateForm1() {
     address = $("#address").val();
     city = $("#city").val();
     email = $("#email").val();
-    bankaccount = $("#bankaccount").val();
+    paypal = $("#paypal").val();
     moreinfo = $("#moreinfo").val();
     telephone = $("#telephone").val();
     userid = localStorage.userId;
@@ -103,7 +103,7 @@ function validateForm1() {
         address : address,
         city : city,
         email : email,
-        bankaccount : bankaccount,
+        paypal : paypal,
         moreinfo : moreinfo,
         telephone : telephone
     };

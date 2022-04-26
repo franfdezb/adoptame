@@ -101,8 +101,8 @@
                     <input required class="form-control" name="Peso" id="telephone" placeholder="Teléfono">
                 </div>
                 <div class="form-group">
-                    <label>Si quieres recibir donaciones, pon aquí una cuenta bancaria</label>
-                    <input required class="form-control" name="cuentabancaria" id="bankaccount" placeholder="Cuenta bancaria">
+                    <label>Si quieres recibir donaciones, pon aquí tu e-mail de Paypal</label>
+                    <input required class="form-control" name="cuentabancaria" id="paypal" placeholder="E-mail de PayPal">
                 </div>
                 <p></p>
                 <div class="form-group">

@@ -67,7 +67,7 @@ function handleRefugeData(data){
     if(data.paypal == ''){
         $("#donaciones").remove();
     }else{
-        $("#donar").html("Si quieres apoyar a esta protectora, puedes donar a esta dirección de PayPal:")
+        $("#donar").html("Si quieres apoyar a esta protectora, puedes donar a este e-mail de PayPal:")
         $("#emailpaypal").append(data.paypal)
     }
 

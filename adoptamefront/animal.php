@@ -46,13 +46,13 @@
 
     <div class="column-right boxeo">
         <div class="buttonperfilanimal1" style="padding: 9px 10px !important; background-color: #FFFCBD !important;">
-            <h5 id="peso" style="padding-bottom: 15px;"><b>INFORMACIÓN SANITARIA</b></h5>
+            <h5 style="padding-bottom: 15px;"><b>INFORMACIÓN SANITARIA</b></h5>
             <h5 id="vacunado">Vacunado: </h5>
             <h5 id="desparasitado">Desparasitado: </h5>
             <h5 id="esterilizado">Esterilizado: </h5>
             <h5 id="microchip">Microchip: </h5>
         </div>
-        <div class="buttonperfilanimal1" id="donaciones" style="padding: 9px 10px !important; background-color: #FFFCBD !important;">
+        <div class="buttonperfilanimal1" id="donaciones" style="max-width: 290px; padding: 9px 10px !important; background-color: #FFFCBD !important;">
             <h5 id="donar" style="padding-bottom: 15px;"><b>INFORMACIÓN DE CONTACTO</b></h5>
             <h5 id="emailpaypal"></h5>
         </div>

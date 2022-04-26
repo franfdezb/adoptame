@@ -100,7 +100,7 @@ function handleAnimalData(data){
         $("#donaciones").remove();
     }else{
         $("#donar").html("Si quieres ayudar al dueño del animal con su cuidado, puedes donar a esta dirección de PayPal:")
-        $("#emailpaypal").append(data.paypal)
+        $("#emailpaypal").html(data.paypal)
     }
 
     //--------------------------
