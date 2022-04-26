@@ -66,7 +66,10 @@ module.exports = (sequelize, Sequelize) => {
       },
       microchip: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: false,
+      },
+      paypal: {
+        type: Sequelize.STRING
       }
     });
     return Animal;

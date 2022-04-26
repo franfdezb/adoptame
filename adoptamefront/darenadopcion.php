@@ -130,6 +130,10 @@
                     <input type="date" class="form-control" id="fechanacimiento" name="trip-start" value="<?php echo date("Y-m-d");?>" min="1990-01-01" max="<?php echo date("Y-m-d");?>">
                 </div>
                 <p></p>
+                <div class="form-group">
+                    <label>Si quieres recibir donaciones para el cuidado del animal, pon aquí un email de PayPal</label>
+                    <input required class="form-control" name="Peso" id="paypal" placeholder="E-mail de PayPal">
+                </div>
                 <div style="width: 100%" >
                             <input type="checkbox" id="checkboxVacuna">
                             <label for="scales">¿Está vacunado?</label>

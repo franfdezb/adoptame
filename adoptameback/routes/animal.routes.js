@@ -10,8 +10,8 @@ module.exports = function(app) {
   app.post("/api/animal/create", controller.createanimal);
   app.get('/animal/:id', controller.searchanimal);
   app.get('/animal/getall/:offset', controller.getallanimals);
-  app.put('/api/animal/:id', [verifyUserid], controller.editanimal);
-  app.delete('/api/animal/:id', controller.deleteanimal);
+  app.put('/api/animal/:id', [verifyAnimalUserid], controller.editanimal);
+  app.delete('/api/animal/:id', [verifyAnimalUserid], controller.deleteanimal);
   app.get('/animal/getallbyid/:id', controller.getallrefugeanimals);
   app.get('/animal/getalldogs/:offset', controller.getalldogs);
   app.get('/animal/getallcats/:offset', controller.getallcats);

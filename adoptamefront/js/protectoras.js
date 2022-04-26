@@ -12,7 +12,7 @@ function loadMoreAnimals(){
 function obtainRefugeData() {
 
     $.ajax({
-        url: "http://localhost:8080/api/refuge/getall/" + offset,
+        url: "http://localhost:8080/refuge/getall/" + offset,
         method: "GET",
         contentType: "application/json",
         success: function(response){

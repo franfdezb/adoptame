@@ -10,7 +10,7 @@ var refugeuserid = null;
 function obtainRefugeData() {
 
     $.ajax({
-        url: "http://localhost:8080/api/refuge/" + id,
+        url: "http://localhost:8080/refuge/" + id,
         method: "GET",
         contentType: "application/json",
         success: function(response){
@@ -63,6 +63,13 @@ function handleRefugeData(data){
 
     $("#email").append(data.email);
     $("#telephone").append(data.telephone);
+
+    if(data.paypal == ''){
+        $("#donaciones").remove();
+    }else{
+        $("#donar").html("Si quieres apoyar a esta protectora, puedes donar a esta dirección de PayPal:")
+        $("#emailpaypal").append(data.paypal)
+    }
 
 
 }

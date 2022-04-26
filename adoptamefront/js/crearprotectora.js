@@ -68,7 +68,7 @@ function validateForm1() {
     address = $("#address").val();
     city = $("#city").val();
     email = $("#email").val();
-    bankaccount = $("#bankaccount").val();
+    paypal = $("#paypal").val();
     moreinfo = $("#moreinfo").val();
     telephone = $("#telephone").val();
     userid = localStorage.userId;
@@ -113,7 +113,7 @@ function validateForm1() {
         address : address,
         city : city,
         email : email,
-        bankaccount : bankaccount,
+        paypal : paypal,
         moreinfo : moreinfo,
         userid : userid,
         photo1 : photo1,
@@ -146,6 +146,9 @@ function resultRefuge(refuge) {
         method: "POST",
         data: JSON.stringify(refuge),
         contentType: "application/json",
+        headers: {
+            'x-access-token': getToken(),
+        },
         success: function(response){
             idrefuge = response.message;
             handleRegister(refuge);

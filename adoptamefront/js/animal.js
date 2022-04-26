@@ -96,6 +96,13 @@ function handleAnimalData(data){
     
     $("#masinfo").html("Información adicional: " + data.moreinfo);
 
+    if(data.paypal == ''){
+        $("#donaciones").remove();
+    }else{
+        $("#donar").html("Si quieres ayudar al dueño del animal con su cuidado, puedes donar a esta dirección de PayPal:")
+        $("#emailpaypal").append(data.paypal)
+    }
+
     //--------------------------
 
     if(data.vaccinated == true){

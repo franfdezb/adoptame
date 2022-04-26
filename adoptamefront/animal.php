@@ -52,6 +52,10 @@
             <h5 id="esterilizado">Esterilizado: </h5>
             <h5 id="microchip">Microchip: </h5>
         </div>
+        <div class="buttonperfilanimal1" id="donaciones" style="padding: 9px 10px !important; background-color: #FFFCBD !important;">
+            <h5 id="donar" style="padding-bottom: 15px;"><b>INFORMACIÓN DE CONTACTO</b></h5>
+            <h5 id="emailpaypal"></h5>
+        </div>
     </div>
    </div>
 

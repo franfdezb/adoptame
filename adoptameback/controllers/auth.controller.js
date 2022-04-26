@@ -79,17 +79,24 @@ exports.signin = (req, res) => {
     });
 };
 
-verifyUserid = (req, res, next) => {
-  Animal.findOne({ where: { id: req.params.id }}).then(data => {
-    console.log("HJGFSBDAGIVSBGIVDSAFBPIUDSAVFPDSAIUOVFDSpoifbPS")
-    console.log(data.userid)
-    console.log(req.userId)
-    console.log(idusuario)
-    if(data['userid'] == idusuario){
-      console.log("HJGFSBDAGIVSBGIVDSAFBPIUDSAVFPDSAIUOVFDSpoifbPS")
+verifyAnimalUserid = (req, res, next) => {
+  Animal.findOne({ where: { id: req.params.id }}).then(data => {  
+    if(req.userId == data.userid){
+      console.log("FUNCIONA")
       next();
     }else{
-      //res send error
+      res.status(401).send({ message: err.message });
+    }
+});
+}
+
+verifyRefugeUserid = (req, res, next) => {
+  Refuge.findOne({ where: { id: req.params.id }}).then(data => {  
+    if(req.userId == data.userid){
+      console.log("FUNCIONA")
+      next();
+    }else{
+      res.status(401).send({ message: err.message });
     }
 });
 }

@@ -46,6 +46,7 @@ function validateForm1() {
 
     age = $("#fechanacimiento").val(); //A lo mejor da error porque es tipo date
     moreinfo = $("#moreinfo").val();
+    paypal = $("#paypal").val();
 
     vaccinated = $("#checkboxVacuna").is(":checked");
     dewormed = $("#checkboxParasito").is(":checked");
@@ -81,6 +82,13 @@ function validateForm1() {
         errorCounter++;
     }
 
+    if ($("#address").val() == '') {
+        $("#errors-container").append(
+            getError("Debes seleccionar una provincia")
+        );
+        errorCounter++;
+    }
+
     let animal = {
         weight: weight,
         raze: raze,
@@ -94,6 +102,7 @@ function validateForm1() {
         refugeid: refugeid,
         userid: userid,
         moreinfo: moreinfo,
+        paypal: paypal,
         photo1: photo1,
         photo2: photo2,
         vaccinated: vaccinated,
