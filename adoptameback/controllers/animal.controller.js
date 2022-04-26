@@ -93,3 +93,30 @@ exports.getallrefugeanimals = (req, res) => {
     }
 }).then(animals => res.json(animals))
 }
+
+exports.getalldogs = (req, res) => {
+
+  Animal.findAll({
+    limit: 1000,
+    offset: req.params.offset,
+    where: {specie: 'Perro'}
+  }).then(animals => res.json(animals))
+}
+
+exports.getallcats = (req, res) => {
+
+  Animal.findAll({
+    limit: 1000,
+    offset: req.params.offset,
+    where: {specie: 'Gato'}
+  }).then(animals => res.json(animals))
+}
+
+exports.getallothers = (req, res) => {
+
+  Animal.findAll({
+    limit: 1000,
+    offset: req.params.offset,
+    where: {specie: 'Otro'}
+  }).then(animals => res.json(animals))
+}

@@ -61,3 +61,64 @@ function handleAnimalData(data){
 
 
 }
+
+$("#filtrarindex").change(function () {
+    if ($(this).val() == 'Perro') {
+      //Filtrar por perro
+
+      $("#contenedorfotos").empty();
+
+      $.ajax({
+        url: "http://localhost:8080/animal/getalldogs/" + 0,
+        method: "GET",
+        contentType: "application/json",
+        success: function(response){
+            //console.log(response);
+            handleAnimalData(response);
+        },
+        error: function(response) {
+            console.log(response);
+            alert("Ha habido un error con la comunicación de la BBDD");
+        }
+    });
+
+    }else if($(this).val() == 'Gato'){
+      //Filtrar por gato
+
+      $("#contenedorfotos").empty();
+
+      $.ajax({
+        url: "http://localhost:8080/animal/getallcats/" + 0,
+        method: "GET",
+        contentType: "application/json",
+        success: function(response){
+            //console.log(response);
+            handleAnimalData(response);
+        },
+        error: function(response) {
+            console.log(response);
+            alert("Ha habido un error con la comunicación de la BBDD");
+        }
+    });
+
+    }else{
+
+        $("#contenedorfotos").empty();
+
+        $.ajax({
+            url: "http://localhost:8080/animal/getallothers/" + 0,
+            method: "GET",
+            contentType: "application/json",
+            success: function(response){
+                //console.log(response);
+                handleAnimalData(response);
+            },
+            error: function(response) {
+                console.log(response);
+                alert("Ha habido un error con la comunicación de la BBDD");
+            }
+        });
+
+    }
+    
+  });

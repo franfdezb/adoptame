@@ -8,6 +8,8 @@
 
 <body style="text-align: center">
   <?php include 'header.php' ?>
+
+  <select class="form-control1" id="filtrarindex" style="text-align: center !important; margin-bottom: 12px !important; width: 15%; display: initial;"> <option value="filtrar">Filtrar por</option> <option value="Perro">Perro</option> <option value="Gato">Gato</option> <option value="Otro">Otro</option> </select>
   
   <div id="contenedorfotos" style="width: 95%;text-align: center; margin: 0 auto;">
   </div>
