@@ -50,7 +50,7 @@ function handleAnimalData(data){
         html += '<div class="desc" style="font-weight: bold; font-size: 26px;">' + data[i].name + '</div>\n';
         html += '<div class="desc1" style="font-size: 20px;">Lugar: ' + data[i].address + '</div>\n';
         html += '<div>\n';
-        html += '<a class="buttonperfilanimal" href="animal.php?id=' + data[i].id + '" id="button" style="background-color: #03fc49 !important;display:block; margin: 0px !important;text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">EN ADOPCIÓN</a>';
+        html += '<a class="buttonperfilanimal" href="animal.php?id=' + data[i].id + '" id="button" style="background-color: #F1C232 !important;display:block; margin: 0px !important;text-align: center; color: black !important; font-weight: bold; font-family: Open Sans;">EN ADOPCIÓN</a>';
         html += '</div>\n';
         html += '</div>\n';
         html += '</div>\n';

@@ -20,7 +20,7 @@ function obtainRefugeData() {
             if(response.userid == localStorage.userId){
                 fillRefugeData(response);
             }else{
-                    if(localStorage.tokenTime == null){
+                    if(response.userid != localStorage.userId || localStorage.tokenTime == null){
                         $( ".container" ).remove();
                         Swal.fire({
                             icon: 'error',

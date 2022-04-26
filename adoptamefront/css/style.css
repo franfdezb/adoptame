@@ -317,6 +317,8 @@ profile-header {
     #buttonmenumovil{
         display: block !important;
         margin: 0 auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 }
 
@@ -429,6 +431,10 @@ div.gallery {
       width: 100%;
       padding: 3px 35px;
     }
+  }
+
+  .clearfix{
+      padding-bottom: 30px;
   }
   
   .clearfix:after {

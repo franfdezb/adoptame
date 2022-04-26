@@ -5,9 +5,21 @@ var errorCounter = 0;
 var animalid = null;
 
  $(document).ready(function(){
-    obtainAnimalData();
-    handleUserData();
-    fillUserData();
+     if(localStorage.userId != null){
+        obtainAnimalData();
+        handleUserData();
+        fillUserData();
+     }else{
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Necesitas estar logeado para poder hacer esto',
+            confirmButtonColor: '#F1C232'
+        }).then(function(){
+            window.location.href = "login.php";
+          })
+     }
+    
 });
 
 function obtainAnimalData() {
