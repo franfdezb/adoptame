@@ -95,6 +95,7 @@ function handleAnimalData(data){
     if(data.adoptionStatus == false){
         $("#adoptionStatus").append("<b>" + "EN ADOPCIÓN" + "<b>")
     }else{
+        $("#buttonadoptar").remove();
         $("#adoptionStatus").append("<b>" + "ADOPTADO" + "<b>")
     }
 

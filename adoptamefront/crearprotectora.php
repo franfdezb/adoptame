@@ -33,7 +33,7 @@
                 <p></p>
                 <div class="form-group">
                     <label>Introduce la dirección (*)</label>
-                    <input required class="form-control" name="Raza" id="address" placeholder="Dirección completa del refugio/protectora">
+                    <input required class="form-control" name="Raza" id="address" placeholder="Dirección completa, ciudad y código postal">
                 </div>
                 <p></p>
                 <div class="form-group">
