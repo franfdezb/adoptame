@@ -82,7 +82,13 @@ function handleAnimalData(data){
     }
     $("#fecha").html("<b>· Fecha nacimiento: </b>" + data.age);
     $("#tamaño").html("<b>· Tamaño: </b>" + data.size);
-    $("#peso").html("<b>· Peso: </b>" + data.weight + "kg");
+
+    if(data.weight == ''){
+        $("#peso").html("<b>· Peso: </b>" + "Desconocido");
+    }else{
+        $("#peso").html("<b>· Peso: </b>" + data.weight + "kg");
+    }
+
 
     //--------------------------
 

@@ -12,7 +12,7 @@
 
 <body>
     <?php include 'header.php' ?>
-    <div class="container">
+    <div class="container" style="margin-bottom: 20px;">
         <div class="row">
             <div class="col-md text-center">
                 <h3>Inicio de sesión</h3>

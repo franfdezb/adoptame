@@ -43,7 +43,8 @@ exports.createanimal = (req, res) => {
 
     Animal.findAll({
       limit: 15,
-      offset: req.params.offset
+      offset: req.params.offset,
+      where: {adoptionStatus: false}
     }).then(animals => res.json(animals))
   }
 

@@ -11,13 +11,15 @@
 function checkLogin(){
     if(isLogged()){
         //Cambiamos las opciones del desplegable del perfil que está en el header
-        $("#optiononeprofile").text("Tu cuenta");
+        $("#optiononeprofile").text("Editar cuenta");
         $("#optiononeprofile").removeAttr("href");
+        $("#optiononeprofile").css("cursor", "pointer")
         $("#optiontwoprofile").text("Cerrar sesión");
         $("#optiontwoprofile").removeAttr("href");
-
+        $("#optiontwoprofile").css("cursor", "pointer")
+        
         //Cambiamos las opciones del desplegable del menú móvil
-        $("#optionthreeprofile").text("Tu cuenta");
+        $("#optionthreeprofile").text("Editar cuenta");
         $("#optionthreeprofile").removeAttr("href");
         $("#optionfourprofile").text("Cerrar sesión");
         $("#optionfourprofile").removeAttr("href");

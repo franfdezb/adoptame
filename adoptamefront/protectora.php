@@ -12,11 +12,12 @@
   <div class="padre" style="float: left; display: flex; width: 100%; height: calc(100% - 90%) !important; margin-bottom: 25px; padding-left: 6px;">
     <div class="column-left boxeoprotectora">
         <p style="margin-top: 15px;">
-        <a onclick="obtainAnimalData()" class="buttonperfilanimal" id="button" style="cursor: pointer; text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px;">VER ANIMALES</a>
+        <a onclick="obtainAnimalData()" class="buttonperfilanimal" id="buttonver" style="cursor: pointer; text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px;">VER ANIMALES</a>
         <a href="#" class="buttonperfilanimal" id="buttoneditar" style="text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px"></a>
         </p>
         <img id="primeraimagen"></img>
         <h3 id="name"></h3>
+        <a href="#" class="buttonperfilanimal" id="buttoneliminar" style="text-align: center; color: black !important; font-weight: bold; font-size: 120%; font-family: Open Sans; padding: 14px 10px"></a>
     </div>
 
     <div class="column-center boxeoprotectora">

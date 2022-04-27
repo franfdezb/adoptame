@@ -50,16 +50,56 @@ function checkRefugeProfile(){
 
 function checkIfUserHasRefuge(data){
     if(data.refugeid != null){
-        Swal.fire({
-            icon: 'error',
-            title: '¡Error!',
-            text: 'Ya tienes creada una protectora',
-            confirmButtonColor: '#F1C232'
-        }).then(function(){
-            window.location.href = "index.php";
-          })
+
+        $.ajax({
+            url: "http://localhost:8080/refuge/" + data.refugeid,
+            method: "GET",
+            contentType: "application/json",
+            success: function(response){
+
+                if(response == ''){
+                    ajaxRemoveRefugeUser(data);
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: '¡Error!',
+                        text: 'Ya tienes creada una protectora',
+                        confirmButtonColor: '#F1C232'
+                    }).then(function(){
+                        window.location.href = "index.php";
+                      })
+                }
+                
+            },
+            error: function(response) {
+            }
+        });
     }
 }
+
+
+function ajaxRemoveRefugeUser(data){
+
+    var userrefuge = {
+        refugeid : null
+    };
+
+    $.ajax({
+        url: "http://localhost:8080/api/user/" + data.id,
+        method: "PUT",
+        data: JSON.stringify(userrefuge),
+        contentType: "application/json",
+        success: function(response){
+            //idanimal = response.message;
+            //handleRegister(animal);
+            //window.location.href = "animal.php?id=" + id;
+        },
+        error: function(response) {
+            console.log(response);
+            alert("Ha habido un error al intentar enviar la solicitud");
+        }
+    });
+    }
 
 function validateForm1() {
     $("#errors-container").empty();

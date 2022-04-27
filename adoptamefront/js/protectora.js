@@ -29,10 +29,13 @@ function obtainRefugeData() {
 function checkIfUserOwner(data){
     if(data.userid == localStorage.userId){
         $("#buttoneditar").html("EDITAR")
+        $("#buttoneliminar").html("ELIMINAR")
+        $('#buttoneliminar').attr('onclick', 'eliminar()');
 
         $('#buttoneditar').attr('href','editarprotectora.php?id=' + id);
     }else{
         $("#buttoneditar").remove();
+        $("#buttoneliminar").remove();
 
     }
 }
@@ -89,6 +92,8 @@ function obtainAnimalData() {
             alert("Ha habido un error con la comunicación de la BBDD");
         }
     });
+
+    $("#buttonver").removeAttr("onclick");
 }
 
 function handleAnimalData(data){
@@ -122,3 +127,50 @@ function handleAnimalData(data){
 
 
 }
+
+function eliminar(){
+    Swal.fire({
+        title: '¿Estás seguro de que quieres eliminar este refugio?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#F1C232',
+        confirmButtonText: 'SÍ',
+        cancelButtonText: 'CANCELAR'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            modalEliminar();
+            $.ajax({
+                url: "http://localhost:8080/api/refuge/" + id,
+                method: "DELETE",
+                contentType: "application/json",
+                headers: {
+                    'x-access-token': getToken(),
+                },
+                success: function(response){
+
+                },
+                error: function(response) {
+                    console.log(response);
+                    alert("Ha habido un error al buscar el refugio");
+                }
+            });
+
+
+        }
+      })
+}
+
+function modalEliminar(){
+    Swal.fire({
+        title: 'Perfil de refugio/protectora eliminado',
+        imageUrl: 'images/logocirculo.png',
+        imageWidth: 150,
+        imageAlt: 'Custom image',
+        confirmButtonColor: '#F1C232'
+    }).then(function(){
+        window.location.href = "index.php"
+    })
+}
+
+
