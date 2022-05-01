@@ -1,3 +1,5 @@
+var errorCounter = 0;
+
 $(document).ready(function() {
     $('#nombre').removeClass('is-valid');
   });
@@ -13,6 +15,32 @@ function validateForm1() {
     password1 = $("#password1").val();
     password2 = $("#password2").val();
     isRefuge = $("#checkboxRefugio").is(":checked");
+
+    if(nombre.includes('(') || nombre.includes('*') || nombre.includes(';') || nombre.includes(',') || nombre.includes(':')){
+        $("#errors-container").append(
+            getError("El nombre no puede contener caracteres especiales")
+        );
+        errorCounter++;
+    }
+
+    if(surname.includes('(') || surname.includes('*') || surname.includes(';') || surname.includes(',') || surname.includes(':')){
+        $("#errors-container").append(
+            getError("El apellido no puede contener caracteres especiales")
+        );
+        errorCounter++;
+    }
+    if(email.includes('(') || email.includes('*') || email.includes(';') || email.includes(',') || email.includes(':')){
+        $("#errors-container").append(
+            getError("El email no puede contener caracteres especiales")
+        );
+        errorCounter++;
+    }
+    if(username.includes('(') || username.includes('*') || username.includes(';') || username.includes(',') || username.includes(':')){
+        $("#errors-container").append(
+            getError("El nickname no puede contener caracteres especiales")
+        );
+        errorCounter++;
+    }
 
     if (nombre.trim().length < 3) {
         $("#errors-container").append(
@@ -77,6 +105,9 @@ function validateForm1() {
 
 function resultEmail(user) {
 
+    if(errorCounter > 0){
+        errorCounter = 0;
+    }else{
         $.ajax({
             url: "http://localhost:8080/api/auth/signup",
             method: "POST",
@@ -89,6 +120,8 @@ function resultEmail(user) {
             }
         });
     }
+
+}
 
 function handleRegister(data) {
 
